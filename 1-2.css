@@ -1,0 +1,37 @@
+ul
+{
+	display:inline;
+	list-style-type:none;
+	margin-left:0;
+	padding:0;
+	overflow:hidden;
+}
+li
+{
+	display:inline;
+}
+p {text-indent:34px;}
+body
+{
+	margin: 0;
+	background: #EFEFEF;
+}
+.bodyhead
+{
+	background: #ADD8E6;
+    margin-top: -21px;
+   /* margin-bottom: -20px;*/
+}
+.block
+{
+	border: 1px outset;
+    margin: 20px;
+    padding: 20px;
+    background: white;
+}
+
+.form
+{
+	line-height: 2;
+	text-align: center;
+}
