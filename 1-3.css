@@ -1,0 +1,61 @@
+.body
+{
+	pading:20px;
+	background: #eee;
+	border: 1px solid #999;
+	width: 100%;
+	
+	float: left;
+	position: relative;
+	/*overflow: hidden;*/
+
+}
+.name
+{
+	display: inline-block;
+	width: 200px;
+	background: white;
+	margin: 20px;
+	padding: 20px;
+	box-shadow: 1px 1px 2px 1px #848484;
+}
+.logo
+{
+	display: inline-block;
+	width: 80px;
+	height: 80px
+}
+.teamname
+{
+	display: inline-block;
+	padding: 10px 30px 10px 30px;
+	vertical-align: top;
+}
+.intro
+{
+	position:absolute;
+	display: inline-block;
+	right: 200px;
+	left: 300px;
+	background: white;
+	margin: 20px;
+	padding: 20px;
+	box-shadow: 1px 1px 2px 1px #848484;
+}
+.list
+{
+	position:absolute;
+	display: inline-block;
+	background: white;
+	right: 20px;
+	width: 120px;
+	top: 20px
+}
+.logo2
+{
+	width: 80px;
+	height: 80px;
+	padding: 20px;
+	border: 1px solid lightblue;
+	box-shadow: 1px 1px 2px 1px #848484;
+}
