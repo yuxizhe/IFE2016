@@ -3,53 +3,59 @@
 	pading:20px;
 	background: #eee;
 	border: 1px solid #999;
-	width: 100%;
-	
+	/*width: 100%;*/
+	padding: 20px;
 	float: left;
-	position: relative;
-	/*overflow: hidden;*/
+	/*position: relative;*/
+	/*overflow: auto;*/
 
 }
 .name
 {
-	display: inline-block;
+	/*display: inline-block;*/
+	float: left;
 	width: 200px;
 	background: white;
-	margin: 20px;
+	/*margin: 20px;*/
 	padding: 20px;
 	box-shadow: 1px 1px 2px 1px #848484;
 }
 .logo
 {
-	display: inline-block;
+	/*display: inline-block;*/
+	float: left;
 	width: 80px;
 	height: 80px
 }
 .teamname
 {
-	display: inline-block;
+	/*display: inline-block;*/
 	padding: 10px 30px 10px 30px;
 	vertical-align: top;
+	text-align: center;
 }
 .intro
 {
-	position:absolute;
-	display: inline-block;
-	right: 200px;
-	left: 300px;
+	/*position:absolute;*/
+	/*float:left;*/  
+	/*display: inline-block;*/
+   /*中间的不用浮动*/
 	background: white;
-	margin: 20px;
+	/*很棒*/
+	margin-left: 250px;
+	margin-right: 200px;
 	padding: 20px;
 	box-shadow: 1px 1px 2px 1px #848484;
 }
 .list
 {
-	position:absolute;
-	display: inline-block;
+	/*position:absolute;*/
+	/*display: inline-block;*/
+	float: right;
 	background: white;
-	right: 20px;
+	/*right: 20px;*/
 	width: 120px;
-	top: 20px
+	/*top: 20px*/
 }
 .logo2
 {
