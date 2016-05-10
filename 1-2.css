@@ -29,9 +29,58 @@ body
     padding: 20px;
     background: white;
 }
-
+.block h3
+{
+    border-left: 3px solid #CCCCCC;
+    line-height: 40px;
+    margin: 0;
+}
 .form
 {
 	line-height: 2;
-	text-align: center;
+	/*text-align: center;*/
+
+}
+.form .tip
+{
+	width: 35%;
+	/*必须加上float才生效*/
+    float: left;
+    text-align: right;
+}
+.form .button
+{
+	width: 100%;
+    border-radius: 8px;
+    border: none;
+    line-height: 3;
+    color: white;
+    background: lightblue;
+}
+.form .button:hover
+{
+	background: blue;
+}
+.nav
+{
+	position: absolute;
+    right: 0px;
+    top: 10px;
+}
+.table
+{
+	width:100%;
+	text-align: left;
+	border: 1px solid grey;
+	border-collapse: collapse;
+}
+.col
+{
+	border: 1px solid grey;
+}
+.headcol
+{
+	background: #7B8071;
+    color: white;
+    border: 1px solid white;
 }
