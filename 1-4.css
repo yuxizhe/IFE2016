@@ -1,0 +1,38 @@
+.middle
+{
+	position: absolute;
+	height: 200px;
+	width: 400px;
+	background: #ccc;
+	top: 50%;
+	margin-top: -100px;
+	left: 50%;
+	margin-left: -200px;
+	
+}
+body
+{
+	/*position: relative;
+	height: 100%;*/
+	/*这里body不能用relative  body只是一行  不是全部的页面*/
+}
+.top
+{
+	height: 50px;
+	width: 50px;
+	background: #fc0;
+	border-radius: 0 0 50px 0;
+}
+.end
+{
+	height: 50px;
+	width: 50px;
+	background: #fc0;
+	border-radius: 50px 0 0 0;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+
+/*	margin-left: 350px;
+	margin-top: 100px*/
+}
