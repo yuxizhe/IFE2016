@@ -35,12 +35,19 @@ var aqiData = [
     return document.getElementById(id);
     // body...
   }
-  var aqiDataSort = []; 
-  for(n=0 ; n<aqiData.length ; n++){
-      if(aqiData[n][1]>60){
-        aqiDataSort.push(aqiData[n]);
-        $('aqi-list').innerHTML += '<li>第' + (n+1) + '名 ：' + aqiData[n][0] + ',' + aqiData[n][1] + '</li>';
-      }
+
+  // 改用js内置函数的方式
+  var aqiDataSort = aqiData.filter(function(item) {
+     return item[1] > 60;
+  })
+  // 用sort的方式
+  aqiDataSort.sort(function(a,b){
+    return b[1] - a[1];
+  })
+
+  for (var i = 0;  i < aqiDataSort.length ;  i++) {
+     $('aqi-list').innerHTML += '<li>第' + (i+1) + '名 ：' + aqiDataSort[i][0] + ',' + aqiDataSort[i][1] + '</li>';
+
   }
 
 })();
