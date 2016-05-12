@@ -50,7 +50,8 @@ function getData() {
   for (var i = 0; i < a.length; i++) {
     var mid = [];
     // 获取字符串前两  用substring  也可以用 split
-    mid[0] = a[i].innerHTML.substring(0,2);
+    // mid[0] = a[i].innerHTML.substring(0,2);
+    mid[0] = a[i].innerHTML.split("空气质量：")[0];
     // 获取字符串中的数字
     mid[1] = a[i].innerHTML.replace(/[^0-9]/ig,""); 
     // 或者使用 firstElementChild.innerHTML 
@@ -86,11 +87,13 @@ function sortAqiData(data) {
  */
 function render(data) {
   var number = ["一","二","三","四","五","六","七"];
+  // 加上一个temp中间变量可以防止每次点都增加的现象
+  var temp ="";
   // Array 的循环 用forEach比较好
   for (var i = 0; i < data.length; i++) {
-    $('resort').innerHTML += '<li>第' + number[i] + '名 ：' + data[i][0] + ',' + data[i][1] + '</li>';
+    temp += '<li>第' + number[i] + '名 ：' + data[i][0] + ',' + data[i][1] + '</li>';
   }
-
+  $('resort').innerHTML = temp;
 }
 
 function btnHandle() {
