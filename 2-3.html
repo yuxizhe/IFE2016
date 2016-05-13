@@ -16,8 +16,8 @@
     <li>成都空气质量：<b>90</b></li>
   </ul>
 
-  <ul id="resort">
-    <!-- 
+  <ul id="resort" class="dd" dir="aa">
+    <!--
     <li>第一名：北京空气质量：<b>90</b></li>
     <li>第二名：北京空气质量：<b>90</b></li>
     <li>第三名：北京空气质量：<b>90</b></li>
@@ -33,7 +33,7 @@
     return document.getElementById(id);
   }
 
-  
+
 /**
  * getData方法
  * 读取id为source的列表，获取其中城市名字及城市对应的空气质量
@@ -46,15 +46,15 @@ function getData() {
   var a = $('source').getElementsByTagName('li');
   // 获取所有子元素 可以用 a.children
   var data = [];
-  
+
   for (var i = 0; i < a.length; i++) {
     var mid = [];
     // 获取字符串前两  用substring  也可以用 split
     // mid[0] = a[i].innerHTML.substring(0,2);
     mid[0] = a[i].innerHTML.split("空气质量：")[0];
     // 获取字符串中的数字
-    mid[1] = a[i].innerHTML.replace(/[^0-9]/ig,""); 
-    // 或者使用 firstElementChild.innerHTML 
+    mid[1] = a[i].innerHTML.replace(/[^0-9]/ig,"");
+    // 或者使用 firstElementChild.innerHTML
     data.push(mid);
   }
   /*

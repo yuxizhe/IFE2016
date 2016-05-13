@@ -61,9 +61,7 @@ function renderAqiList() {
 		temp += "<tr><td>"+ aqiData[i][0] +"</td><td>"+ aqiData[i][1] +"</td><td><button>删除</button></td></tr>"
 	}
 	$('aqi-table').innerHTML = temp;
-	$('aqi-table').children.getElementByTagName('button').onclick=function(){
-  	delBtnHandle(this);
-  } 
+	
 }
 
 /**
@@ -80,8 +78,13 @@ function addBtnHandle() {
  * 获取哪个城市数据被删，删除数据，更新表格显示
  */
 function delBtnHandle(e) {
-  console.log(e);
-
+  // console.log(e);
+  var number; 
+  for (var i = 0; i < aqiData.length; i++) {
+  	if(aqiData[i][0] == e) number = i;
+  }
+  // console.log(number);
+  aqiData.splice(number,1);
   renderAqiList();
 }
 
@@ -93,8 +96,14 @@ function init() {
   $('add-btn').onclick=function(){
   	addBtnHandle();
   }
-   
-  
+  // 直接给还没有生成的节点添加 绑定时 会报错。 所以给上一级添加 再判断target是否是button
+  $('aqi-table').addEventListener('click',function(event){
+  	if(event.target.nodeName == 'BUTTON')
+  	{
+  		// 找到这个node有关系的node 可以在chrome调试窗口帮助找
+  		delBtnHandle(event.path[2].firstChild.innerHTML)
+  	}
+  });
 }
 
 // 增加window.onload  在文档加载完后才运行
