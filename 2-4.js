@@ -14,13 +14,14 @@
 
 var aqiData = [];
 
+// 正则还是不太会
  function isABC(temp) {
       var re = /[^\u4e00-\u9fa5]/ig;
       if(re.test(temp))return false;
       return true;
   }
    function isZheng(temp) {
-      var re = /[^0-9]/ig;
+      var re = /[^0-9]/;
       if(re.test(temp))return false;
       return true;
   }
@@ -31,11 +32,19 @@ var aqiData = [];
 function addAqiData() {
 	var mid = [];
 
-	mid[0]  = $('aqi-city-input').value;
-	mid[1] = $('aqi-value-input').value;
+	mid[0]  = $('aqi-city-input').value.trim();
+	mid[1] = $('aqi-value-input').value.trim();
+	//             或者
+   // if (!strCity.match(/^[A-Za-z\u4E00-\u9FA5]+$/)) {
+   //      alert("城市名必须为中英文字符！");
+   //      return;
+   //  }
+   //  if (!strAqi.match(/^\d+$/)) {
+   //      alert("空气质量指数必须为整数！");
+   //      return;
+   //  }
 
-	// console.log(isABC(mid[0]));
-	// console.log(isZheng(mid[1]));
+
 
 	if( isABC(mid[0]) && isZheng(mid[1]) && mid[0] && mid[1] ){
 	// 判断
