@@ -113,6 +113,8 @@ function init() {
   		delBtnHandle(event.path[2].firstChild.innerHTML)
   	}
   });
+
+
 }
 
 // 增加window.onload  在文档加载完后才运行
