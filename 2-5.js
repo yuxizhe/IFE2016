@@ -137,6 +137,7 @@ function initCitySelector() {
 
 }
 
+
 /**
  * 初始化图表需要的数据格式
  */
