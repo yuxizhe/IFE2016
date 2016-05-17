@@ -8,6 +8,9 @@ var aqiSourceData = {
   }
 };
 */
+var   $ = function(id){
+  return document.getElementById(id);
+}
 
 // 以下两个函数用于随机模拟生成测试数据
 function getDateStr(dat) {
@@ -54,36 +57,65 @@ var pageState = {
  * 渲染图表
  */
 function renderChart() {
+  var temp = [];
+ for(var i in chartData){
+    temp += "<div  style='height:" + chartData[i] + "px' >" + "</div>";
+  }
 
+  document.getElementsByClassName('aqi-chart-wrap')[0].innerHTML = temp;
 }
 
 /**
  * 日、周、月的radio事件点击时的处理函数
  */
+
 function graTimeChange() {
   // 确定是否选项发生了变化 
 
   // 设置对应数据
 
   // 调用图表渲染函数
+  var TimeData = $('form-gra-time').getElementsByTagName('label');
+  var TimeSelect;
+  for (var i = 0; i < TimeData.length; i++) {
+    if(TimeData[i].children[0].checked)
+      TimeSelect = TimeData[i].children[0].value;
+  };
+  if(TimeSelect != pageState.nowGraTime)
+    {pageState.nowGraTime = TimeSelect ;
+
+        console.log(pageState.nowGraTime);
+        renderChart();
+    }
+  
 }
 
 /**
  * select发生变化时的处理函数
  */
-function citySelectChange() {
+function citySelectChange(event) {
   // 确定是否选项发生了变化 
-
+  var a = $('city-select').value;
+  if(a != pageState.nowSelectCity)
+  {
+    pageState.nowSelectCity = a;
+  
   // 设置对应数据
-
+  chartData = aqiSourceData[pageState.nowSelectCity];
   // 调用图表渲染函数
+  renderChart();
+  }
+
 }
 
 /**
  * 初始化日、周、月的radio事件，当点击时，调用函数graTimeChange
  */
 function initGraTimeForm() {
-
+      $('form-gra-time').onclick = function(){
+        graTimeChange();
+      }
+      // graTimeChange();
 }
 
 /**
@@ -92,7 +124,16 @@ function initGraTimeForm() {
 function initCitySelector() {
   // 读取aqiSourceData中的城市，然后设置id为city-select的下拉列表中的选项
 
+  var temp = [];
+  for(var i in aqiSourceData){
+    temp += "<option>" + i + "</option>";
+  }
+  $('city-select').innerHTML = temp;
+
   // 给select设置事件，当选项发生变化时调用函数citySelectChange
+
+  $('city-select').addEventListener('click',function(event){
+    citySelectChange(event)})
 
 }
 
@@ -103,7 +144,7 @@ function initAqiChartData() {
   // 将原始的源数据处理成图表需要的数据格式
   // 处理好的数据存到 chartData 中
 
-  chartData = aqiSourceData[ "北京"];
+  // chartData = aqiSourceData[ "北京"];
 }
 
 /**
@@ -115,4 +156,6 @@ function init() {
   initAqiChartData();
 }
 
-window.onload = init();
+window.onload = function(){
+  init();
+}
