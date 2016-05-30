@@ -9,7 +9,7 @@ function TreeNode(obj) {
     this.childs = obj.childs || [];
     this.data = obj.data || "";
     this.selfElement = obj.selfElement; // 访问对应的DOM结点
-    this.selfElement.TreeNode = this; // 对应的DOM结点访问回来
+    this.selfElement.TreeNode = this; // 对应的DOM结点访问回来 ???
 }
 // 原型模式封装公共操作
 TreeNode.prototype = {
@@ -99,7 +99,7 @@ TreeNode.prototype = {
         newHeader.appendChild(newDelete);
         newNode.appendChild(newHeader);
         this.selfElement.appendChild(newNode);
-        // 创建对应的TreeNode对象并添加到子节点队列
+        //创建对应的TreeNode对象并添加到子节点队列
         this.childs.push(new TreeNode({
             parent: this,
             childs: [],
