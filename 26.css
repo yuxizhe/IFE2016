@@ -1,0 +1,51 @@
+.command{
+	width: 500px;
+	height: 100px;
+	background: gray;
+}
+
+.plant{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -50px 0 0 -50px;
+	height: 100px;
+	width: 100px;
+	background: green;
+	border-radius: 50px;
+}
+
+.orbit1{
+	height: 200px;
+	width: 200px;
+	margin: -51px 0 0 -51px;
+	border: 2px black solid;
+	border-radius: 100px;
+	position: fixed;
+}
+
+.orbit2{
+	height: 300px;
+	width: 300px;
+	margin: -101px 0 0 -101px;
+	border: 2px black solid;
+	border-radius: 150px;
+	position: fixed;
+}
+
+.orbit3{
+	height: 400px;
+	width: 400px;
+	margin: -151px 0 0 -151px;
+	border: 2px black solid;
+	border-radius: 200px;
+	position: fixed;
+}
+.orbit4{
+	height: 500px;
+	width: 500px;
+	margin: -201px 0 0 -201px;
+	border: 2px black solid;
+	border-radius: 250px;
+	position: fixed;
+}
