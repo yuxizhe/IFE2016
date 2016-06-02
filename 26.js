@@ -1,3 +1,6 @@
+function $(id) {
+	return document.getElementById(id);
+}
 
 
 
@@ -6,6 +9,7 @@ function plane(orbi){
 		orbit : orbi,
 		energy : 500,
 		state : 0,
+		angle: 0,
 		command : {
 			start: function () {
 				if(obj.energy>0){
@@ -64,11 +68,15 @@ var planes = {
 	},
 	startRun: function(){
 		setInterval(function () {
-			for (var i = 0; i < this.planelist.length; i++) {
+			for (var i = 0; i < planes.planelist.length; i++) {
 				
-					this.planelist[i].status.charge(2);
-					if(this.planelist[i].state == 1)
-					this.planelist[i].status.consume(5);
+					planes.planelist[i].status.charge(2);
+					if(planes.planelist[i].state == 1){
+						planes.planelist[i].angle += 10%360;
+						planes.planelist[i].status.consume(5);
+						document.getElementsByClassName("plane"+(planes.planelist[i].orbit))[0].style.transform = "rotate(" + planes.planelist[i].angle + "deg)";
+						document.getElementsByClassName("plane"+(planes.planelist[i].orbit))[0].innerHTML = planes.planelist[i].energy;
+					}
 				
 			}
 		},1000)
@@ -79,15 +87,55 @@ var commander ={
 	planelist:[],
 	createPlane:function (orbit) {
 		planes.createPlane(orbit);
+		var planeDiv = document.createElement('div');
+		planeDiv.className = "plane"+orbit;
+		planeDiv.innerHTML = '500';
+		document.getElementsByClassName('plant')[0].appendChild(planeDiv);
 	},
 	fly:function(orbit){
+		for (var i = 0; i < planes.planelist.length; i++) {
+			planes.planelist[i].radio.receive({
+				id:orbit,
+				command: 'start'
+				}
+			)
+		}
 		
+	},
+	stop:function(orbit){
+		for (var i = 0; i < planes.planelist.length; i++) {
+			planes.planelist[i].radio.receive({
+				id:orbit,
+				command: 'stop'
+			})
+		}
 	}
 }
 
+function buttonInit() {
+	var buttonClick = function () {
+		var orb = this.parentNode.dataset.id;
+		switch(this.dataset.id){
+			case 'create': 
+			commander.createPlane(orb);
+			break;
+			case 'fly':
+			commander.fly(orb);
+			break;
+			case 'destory':
+			break;
+		}
+	}
 
+	var buttons = document.getElementsByTagName("button");
+    for(var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", buttonClick);
+    }
+}
 function init(){
-
+	
+	planes.startRun();
+	buttonInit();
 	
 }
 
