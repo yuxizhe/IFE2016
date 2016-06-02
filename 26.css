@@ -85,3 +85,42 @@
   margin: -210px 25px;
   transform-origin: center 260px;
 }
+
+/** 控制台整体 */
+#console {
+    background-color: rgba(150, 150, 150, 0.3);
+    width: 500px;
+    height: 200px;
+    position: fixed;
+    z-index: 100;
+}
+
+/** 控制台标题和操作面板标题 */
+#console-title, #control-title {
+    color: white;
+    background-color: blue;
+    padding: 5px;
+    width: 490px;
+    height: 20px;
+    cursor: move;
+}
+
+/** 控制台文本区 */
+#console-text {
+    overflow: auto;
+    color: white;
+    padding: 5px;
+    width: 490px;
+    height: 160px;
+}
+
+/** 控制台输出内容 */
+#console-text p {
+    padding: 0;
+    margin: 0 0 0 20px;
+    text-indent: -20px;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}

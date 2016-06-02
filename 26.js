@@ -113,6 +113,33 @@ var commander ={
 	}
 }
 
+function getTime() {
+    var date = new Date();
+    var year = ("0000" + date.getFullYear()).substr(-4);
+    var month = ("00" + (date.getMonth() + 1)).substr(-2);
+    var day = ("00" + date.getDay()).substr(-2);
+    var hour = ("00" + date.getHours()).substr(-2);
+    var minute = ("00" + date.getMinutes()).substr(-2);
+    var second = ("00" + date.getSeconds()).substr(-2);
+    var millisecond = ("000" + date.getMilliseconds()).substr(-3);
+    return year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second + "." + millisecond;
+}
+
+
+function console(text,color) {
+	var p = document.createElement('p');
+	var message = document.createElement('span');
+	var consoleLog = $("console-text");
+	p.innerHTML = getTime();
+	message.style.color = color;
+	message.innerHTML = text;
+	p.appendChild(message);
+
+	consoleLog.appendChild(p);
+	consoleLog.scrollTop = consoleLog.scrollHeight;
+
+}
+
 function buttonInit() {
 	var buttonClick = function () {
 		var orb = this.parentNode.dataset.id;
