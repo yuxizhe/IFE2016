@@ -71,11 +71,12 @@ var planes = {
 			for (var i = 0; i < planes.planelist.length; i++) {
 				
 					planes.planelist[i].status.charge(2);
+					document.getElementsByClassName("plane"+(planes.planelist[i].orbit))[0].innerHTML = planes.planelist[i].energy;
+
 					if(planes.planelist[i].state == 1){
 						planes.planelist[i].angle += 10%360;
 						planes.planelist[i].status.consume(5);
-						document.getElementsByClassName("plane"+(planes.planelist[i].orbit))[0].style.transform = "rotate(" + planes.planelist[i].angle + "deg)";
-						document.getElementsByClassName("plane"+(planes.planelist[i].orbit))[0].innerHTML = planes.planelist[i].energy;
+						document.getElementsByClassName("plane"+(planes.planelist[i].orbit))[0].style.transform = "rotate(" + planes.planelist[i].angle + "deg)";	
 					}
 				
 			}
