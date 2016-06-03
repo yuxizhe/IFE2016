@@ -52,8 +52,10 @@ function block(){
 
 var block = new block();
 
-function keyProcess(key){
-	console.log(key.keyCode);
+function keyProcess(event){
+	// 这种映射方式也是很棒
+	var direction = {37: 'LEFT', 38: 'TOP', 39: 'RIGHT', 40: 'BOTTOM'}[event.keyCode]
+	console.log(direction);
 }
 
 function init(){
