@@ -1,0 +1,29 @@
+table{
+	
+	/*取消单元格间间距*/
+	border-collapse:collapse;
+}
+.table tr td{
+  height: 49px;
+  width: 49px;
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  text-align: center;
+  padding: 0;
+
+
+}
+
+.block{
+	height: 50px;
+	width: 50px;
+	background: blue;
+	position: absolute;
+	border-top: 8px solid red;
+	/*box-sizing  很棒 他会自行修改box的大小  包括border*/
+  	box-sizing: border-box;
+}
+
+.chess{
+	position: relative;
+}

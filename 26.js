@@ -130,7 +130,7 @@ function console(text,color) {
 	var p = document.createElement('p');
 	var message = document.createElement('span');
 	var consoleLog = $("console-text");
-	p.innerHTML = getTime();
+	p.innerHTML = getTime() + " ";
 	message.style.color = color;
 	message.innerHTML = text;
 	p.appendChild(message);
