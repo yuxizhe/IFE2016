@@ -52,6 +52,10 @@ function block(){
 
 var block = new block();
 
+function keyProcess(key){
+	console.log(key.keyCode);
+}
+
 function init(){
 	$('go').onclick = function () {
 		block.command.go();
@@ -67,9 +71,10 @@ function init(){
 	};
 	$('down').onclick = function(){
 		block.command.back();
-	}
+	};
+	// 好棒 addEventListener functionname.bind(event) 可实现事件的传递
+	document.addEventListener('keydown',keyProcess.bind(event));
 }
-
 
 window.onload = function(){
 	init();
