@@ -22,6 +22,10 @@ table{
 	border-top: 8px solid red;
 	/*box-sizing  很棒 他会自行修改box的大小  包括border*/
   	box-sizing: border-box;
+  	transform-origin: center;
+
+  	top: 50px;
+  	left: 50px;
 }
 
 .chess{
