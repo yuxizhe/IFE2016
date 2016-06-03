@@ -31,3 +31,9 @@ table{
 .chess{
 	position: relative;
 }
+
+.inputText{
+	position: absolute;
+	left: 600px;
+	top: 100px;
+}
