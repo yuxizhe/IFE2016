@@ -10,16 +10,16 @@ function block(){
 		rotation: 0,
 		command: {
 			left: function () {
-				block.rotation = -90%360;
+				block.rotation = -90;
 				block.blockDiv.style.transform = "rotate(" + block.rotation + "deg)";
 			},
 			right: function(){
-				block.rotation = 90%360;
+				block.rotation = 90;
 				block.blockDiv.style.transform = "rotate(" + block.rotation + "deg)";
 
 			},
 			back: function () {
-				block.rotation = 180%360;
+				block.rotation = 180;
 				block.blockDiv.style.transform = "rotate(" + block.rotation + "deg)";
 			},
 			up: function(){
@@ -53,9 +53,15 @@ function block(){
 var block = new block();
 
 function keyProcess(event){
+
 	// 这种映射方式也是很棒
-	var direction = {37: 'LEFT', 38: 'TOP', 39: 'RIGHT', 40: 'BOTTOM'}[event.keyCode]
-	console.log(direction);
+	var direction = {37: -90, 38: 0, 39: 90, 40: 180}[event.keyCode];
+	if(direction != block.rotation){
+		block.rotation = direction;
+		block.blockDiv.style.transform = "rotate(" + block.rotation + "deg)";
+	}else{
+		block.command.go();
+	}
 }
 
 function init(){
