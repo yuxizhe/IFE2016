@@ -18,6 +18,12 @@ function person(name,veb,mat,eng){
 
 var list = [];
 
+function sort(type) {
+	list.sort(function(a,b) {
+		return a[type] - b[type];
+	})
+}
+
 function render(list) {
 	// 从table改为tbody
 	var html = document.createElement('tbody');
