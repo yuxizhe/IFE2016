@@ -1,9 +1,6 @@
 
 
-window.onload = function(){
-	init();
 
-}
 
 function $(argument) {
 	return document.getElementById(argument);
@@ -21,7 +18,8 @@ var list = [];
 function sort(type) {
 	list.sort(function(a,b) {
 		return a[type] - b[type];
-	})
+	});
+	render(list);
 }
 
 function render(list) {
@@ -43,11 +41,37 @@ function render(list) {
 		}
 	$('table').appendChild(html);
 }
+function buttonInit() {
+	var buttonClick = function(){
+		var ob = this.parentNode.dataset.id;
+		switch(this.dataset.id){
+			case 'low':
+				sort(ob);
+				break;
+			case 'high':
+				sort(ob);
+				break;
+		}
+	}
+	var buttons = document.getElementsByTagName("button");
+	// 这个addEventListener  害惨了 中间l小写找了半天
+	for(var i = 0; i < buttons.length; i++) {
+		buttons[i].addEventListener("click", buttonClick);
+	}
 
+
+	
+}
 function init() {
 	list.push(new person('小A',90,80,98));
 	list.push(new person('小B',98,78,92));
 	list.push(new person('小C',36,82,90));
 	list.push(new person('小D',100,84,93));
 	render(list);
+	buttonInit();
+}
+
+window.onload = function(){
+	init();
+
 }
