@@ -19,27 +19,19 @@ function person(name,veb,mat,eng){
 var list = [];
 
 function render(list) {
-	var html;
-	var tr = document.createElement('tr');
-
+	// 从table改为tbody
+	var html = document.createElement('tbody');
 	for (var i = 0; i < list.length; i++) {
-		var name = document.createElement('td');
-		name.innerHTML = list[i].name;
-		var veb = document.createElement('td');
-		veb.innerHTML = list[i].veb;
-		var eng = document.createElement('td');
-		eng.innerHTML = list[i].eng;
-		var mat = document.createElement('td');
-		mat.innerHTML = list[i].mat;
-		var all = document.createElement('td');
-		all.innerHTML = list[i].all;
-		tr.appendChild(name);
-		tr.appendChild(veb);
-		tr.appendChild(mat);
-		tr.appendChild(eng);
-		tr.appendChild(all);
+		var tr = document.createElement('tr');
+		// 改为for in 的形式 很方便
+		for( var type in list[i]){
+			var name = document.createElement('td');
+			name.innerHTML = list[i][type];
+			tr.appendChild(name);
+		}
+		html.appendChild(tr);
 	}
-	$('table').appendChild(tr);
+	$('table').appendChild(html);
 }
 
 function init() {
