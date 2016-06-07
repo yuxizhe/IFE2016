@@ -30,7 +30,11 @@ function render(list) {
 			tr.appendChild(name);
 		}
 		html.appendChild(tr);
-	}
+	};
+	var a = document.getElementsByTagName('tbody')[1];
+	if(a!= undefined){
+		$('table').removeChild(a);
+		}
 	$('table').appendChild(html);
 }
 
