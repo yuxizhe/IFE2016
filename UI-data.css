@@ -1,0 +1,16 @@
+.current {
+	margin: 30px auto;
+	width: 300px;
+	text-align: center;
+	}
+
+table{
+	margin: 10px;
+	border-collapse: collapse;
+}
+td{
+	width: 100px;
+	height: 30px;
+	border: 2px grey solid;
+	text-align: center;
+}
