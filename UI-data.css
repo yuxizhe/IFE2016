@@ -8,9 +8,18 @@ table{
 	margin: 10px;
 	border-collapse: collapse;
 }
+
 td{
 	width: 100px;
 	height: 30px;
 	border: 2px grey solid;
 	text-align: center;
+}
+
+td:hover{
+	background: grey;
+	cursor: pointer;
+}
+select:hover{
+	cursor: pointer;
 }

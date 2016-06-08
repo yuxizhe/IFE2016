@@ -39,8 +39,18 @@ function renderDate(){
 	}
 }
 
-function init(){
+// function selectDay(){
+// 	console.log(this.innerHTML);
+// }
 
+function init(){
+	var selectDay = function(){
+		console.log(this.innerHTML);
+	}
+	var days = document.getElementsByTagName('td');
+	for (var i = 7; i < days.length; i++) {
+		days[i].addEventListener('click',selectDay);
+	}
 }
 
 window.onload = function(){
