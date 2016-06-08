@@ -40,7 +40,16 @@ function renderDate(){
 }
 
 function selectDay(day){
-	console.log(day.target.innerHTML);
+	var year = $('year').value ;
+	var month = $('month').value ;
+	var date = day.target.innerHTML;
+	var time = new Date();
+	if(date != ''){
+		time.setFullYear(year,month,date);
+		$('currnetDate').innerHTML =year + '年' + month + '月' + date + '日';
+		console.log(time);
+		return time;
+	}
 }
 
 function init(){
@@ -50,7 +59,12 @@ function init(){
 	var days = document.getElementsByTagName('td');
 	for (var i = 7; i < days.length; i++) {
 		days[i].addEventListener('click',selectDay.bind(event));
-	}
+	};
+	var select = document.getElementsByTagName('select');
+	for (var i = 0; i < select.length; i++) {
+		select[i].addEventListener('click',renderDate);
+	};
+	renderDate();
 }
 
 window.onload = function(){
