@@ -23,3 +23,7 @@ td:hover{
 select:hover{
 	cursor: pointer;
 }
+
+#date{
+	visibility: hidden;
+}

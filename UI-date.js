@@ -51,6 +51,10 @@ function selectDay(day){
 		return time;
 	}
 }
+function showbox(){
+	var style = $('date').style.visibility;
+	style == 'visible'?'hidden':'visible';
+}
 
 function init(){
 	// var selectDay = function(){
@@ -64,6 +68,7 @@ function init(){
 	for (var i = 0; i < select.length; i++) {
 		select[i].addEventListener('click',renderDate);
 	};
+	$('currnetDate').addEventListener('click',showbox);
 	renderDate();
 }
 
