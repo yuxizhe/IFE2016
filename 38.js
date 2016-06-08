@@ -15,9 +15,13 @@ function person(name,veb,mat,eng){
 
 var list = [];
 
-function sort(type) {
+function sort(type,method) {
 	list.sort(function(a,b) {
+		if(method == 'low'){
 		return a[type] - b[type];
+		}else{
+		return b[type] - a[type];
+		}
 	});
 	render(list);
 }
@@ -46,10 +50,10 @@ function buttonInit() {
 		var ob = this.parentNode.dataset.id;
 		switch(this.dataset.id){
 			case 'low':
-				sort(ob);
+				sort(ob,'low');
 				break;
 			case 'high':
-				sort(ob);
+				sort(ob,'high');
 				break;
 		}
 	}
