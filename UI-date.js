@@ -39,17 +39,17 @@ function renderDate(){
 	}
 }
 
-// function selectDay(){
-// 	console.log(this.innerHTML);
-// }
+function selectDay(day){
+	console.log(day.target.innerHTML);
+}
 
 function init(){
-	var selectDay = function(){
-		console.log(this.innerHTML);
-	}
+	// var selectDay = function(){
+	// 	console.log(this.innerHTML);
+	// }
 	var days = document.getElementsByTagName('td');
 	for (var i = 7; i < days.length; i++) {
-		days[i].addEventListener('click',selectDay);
+		days[i].addEventListener('click',selectDay.bind(event));
 	}
 }
 
