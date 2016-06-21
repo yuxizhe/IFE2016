@@ -1,0 +1,80 @@
+html, body, .gallery {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+.gallery:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.gallery-item {
+  float: left;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.gallery-item:hover .gallery-photo-info {
+  display: block;
+}
+
+.gallery-photo-info {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: linear-gradient(transparent 77%, rgba(0, 0, 0, 0.33));
+  color: #fff;
+}
+
+.gallery-photo-name {
+  margin-bottom: 2px;
+}
+
+.gallery-photo-description {
+  color: #ddd;
+  font-size: 12px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.gallery-photo-description a {
+  color: #ddd;
+}
+
+.gallery-photo-info-wapper {
+  width: 100%;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  padding: 10px;
+}
+
+.gallery-photo {
+  height: 100%;
+}
+
+.spinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -25px;
+  margin-left: -25px;
+}
+
+.gallery-2 .gallery-item {
+  position: absolute;
+}
+
+.gallery-2 .gallery-item:last-child {
+  right: 0;
+  -webkit-clip-path: polygon(50% 0, 100% 0, 100% 100%, 0% 100%);
+  clip-path: url(../clip.svg#trapezoid);
+}

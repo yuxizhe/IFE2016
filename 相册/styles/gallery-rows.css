@@ -1,0 +1,33 @@
+body {
+  overflow-y: scroll;
+}
+
+.gallery {
+  margin-left: -8px;
+}
+
+.gallery-row {
+  white-space: nowrap;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.gallery-item-wrapper {
+  height: 100%;
+  padding-left: 8px;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.gallery-item {
+  height: 100%;
+}
+
+.gallery-image {
+  height: 100%;
+}
+
+.gallery-image:hover {
+  cursor: zoom-in;
+  opacity: 0.8;
+}
