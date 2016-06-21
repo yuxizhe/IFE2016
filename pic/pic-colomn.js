@@ -24,10 +24,10 @@ var GalleryWall = function(selector,col) {
 }
 
 GalleryWall.prototype.init = function() {
-	var width = this.element.clientWidth / this.col;
+	var width = (this.element.clientWidth - 20) / this.col;
 	var html = '';
 	for (var i = 0; i < this.col; i++) {
-		html += '<div class="galleryColumn" style="width:'+ width+' "></div>' 
+		html += '<div class="galleryColumn" style="width:'+ width+'px "></div>' 
 	};
 	this.element.innerHTML = html;
 	this.columns = this.element.querySelectorAll('.galleryColumn');
@@ -39,8 +39,8 @@ GalleryWall.prototype.append = function(photos) {
 			var item = document.createElement('div');
 			item.className = 'galleryItem';
 			item.innerHTML = 
-				'<div class="galleryPhoto">' +
-				'<img src="' + photo.image.small + '">' +
+				'<div >' +
+				'<img class="galleryPhoto" src="' + photo.image.small + '">' +
 				'</div>';
 			this.getMinColumn().appendChild(item);
 		}).bind(this))
@@ -50,7 +50,7 @@ GalleryWall.prototype.append = function(photos) {
 GalleryWall.prototype.getMinColumn = function() {
 	var min = this.columns[0];
 	for (var i = 0; i < this.col; i++) {
-		if(this.columns[i].clientHeight < min){
+		if(this.columns[i].clientHeight < min.clientHeight){
 			min = this.columns[i];
 		}
 	}

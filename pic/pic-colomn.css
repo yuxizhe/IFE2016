@@ -5,3 +5,12 @@ html body .gallery{
 .galleryItem{
 	width: 100%;
 }
+.galleryColumn{
+	display: inline-block;
+	vertical-align: top;
+	padding: 0 8px;
+	box-sizing: border-box;
+}
+.galleryPhoto{
+	width: 100%;
+}
