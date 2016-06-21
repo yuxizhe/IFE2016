@@ -65,10 +65,12 @@ var Application = function(gallery){
 	this.sourse = '500px';
 	this.load();
 
+	window.addEventListener('scroll',this.scroll.bind(this));
 }
 
 Application.prototype.scroll = function() {
-	if(scrollY + innerHeight > document.body.clientHeight && !this.loading){
+	var scrollTop = document.body.scrollTop || document.documentElement.scrollTop
+	if(scrollTop + innerHeight > document.body.clientHeight && !this.loading){
 		this.load();
 	}
 };
