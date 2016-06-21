@@ -17,6 +17,7 @@ var GalleryColumns = function (selector, minHeight) {
  * @param {Array} photos
  */
 GalleryColumns.prototype.append = function (photos) {
+  // this 中再用this的方法  在外面定义一个
   var self = this
 
   this.getRows(photos).forEach(function (row) {
