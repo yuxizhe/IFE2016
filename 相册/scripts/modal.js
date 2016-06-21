@@ -38,6 +38,7 @@ var Modal = function () {
  */
 Modal.prototype.show = function (url, width, height) {
   document.body.style.overflow = 'hidden'
+  //遮罩层的显示
   this.$modal.classList.add('active')
 
   if (this.$image.src != url) {
