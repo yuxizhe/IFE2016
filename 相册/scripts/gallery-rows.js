@@ -49,7 +49,7 @@ GalleryColumns.prototype.append = function (photos) {
  * @returns {Array}
  */
 GalleryColumns.prototype.getRows = function (photos) {
-  // 合并上次剩下的相片
+  // 合并上次剩下的相片  循环合并的处理
   photos = this.photos.concat(photos)
 
   var aspectRatio = 0
