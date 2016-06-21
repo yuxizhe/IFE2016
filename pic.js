@@ -183,7 +183,7 @@ GalleryWall.prototype.sizes6 = function () {
 }
 
 function init(){
-  getPhotos(0, 'so').then(function (photos) {
+  getPhotos(3, '500px').then(function (photos) {
     // document.querySelector('.spinner').style.display = 'none'
     console.log(photos)
     new GalleryWall('#gallery-1', photos.slice(0, 1))
