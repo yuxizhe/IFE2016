@@ -1,0 +1,15 @@
+.gallery-item {
+  float: left;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  position: relative;
+}
+html, body, .gallery {
+  height: 100%;
+}
+.gallery:after {
+  content: '';
+  display: block;
+  clear: both;
+}
