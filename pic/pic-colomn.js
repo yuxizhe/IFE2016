@@ -49,7 +49,7 @@ GalleryWall.prototype.append = function(photos) {
 
 GalleryWall.prototype.getMinColumn = function() {
 	var min = this.columns[0];
-	for (var i = 0; i < this.col; i++) {
+	for (var i = 0; i < this.columns.length; i++) {
 		if(this.columns[i].clientHeight < min.clientHeight){
 			min = this.columns[i];
 		}
@@ -70,14 +70,14 @@ var Application = function(gallery){
 
 Application.prototype.scroll = function() {
 	var scrollTop = document.body.scrollTop || document.documentElement.scrollTop
-	if(scrollTop + innerHeight > document.body.clientHeight && !this.loading){
+	if((scrollY + innerHeight > document.body.clientHeight )&& !this.loading){
 		this.load();
 	}
 };
 // bind(this) 好像理解了  保证传递后的函数还能用this
 Application.prototype.load = function() {
 	this.loading = true;
-	getPhotos(this.page++,this.sourse).then(this.loaded.bind(this));	
+	getPhotos(this.page,this.sourse).then(this.loaded.bind(this));	
 };
 
 Application.prototype.loaded= function(photos) {
