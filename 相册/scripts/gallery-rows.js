@@ -17,7 +17,7 @@ var GalleryColumns = function (selector, minHeight) {
  * @param {Array} photos
  */
 GalleryColumns.prototype.append = function (photos) {
-  // this 中再用this的方法  在外面定义一个
+  // this 中再用this的方法  在外面定义一个self
   var self = this
 
   this.getRows(photos).forEach(function (row) {
@@ -61,6 +61,7 @@ GalleryColumns.prototype.getRows = function (photos) {
     _photos.push(photos[i])
     aspectRatio += photos[i].aspect_ratio
 
+    // 这个操作处理完photo中的所有图片
     if (aspectRatio > this.minAspectRatio) {
       rows.push({
         aspectRatio: aspectRatio,
