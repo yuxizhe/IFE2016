@@ -64,6 +64,7 @@ Application.prototype.scroll = function() {
 		this.load();
 	}
 };
+
 // bind(this) 好像理解了  保证传递后的函数还能用this
 Application.prototype.load = function() {
 	this.loading = true;
