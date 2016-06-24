@@ -1,0 +1,14 @@
+.galleryPhoto{
+	height: 100%;
+	 display: inline-block;
+}
+.gallery-Row {
+  white-space: nowrap;
+    overflow: hidden;
+    margin-bottom: 8px;
+
+}
+html, body, .gallery {
+  height: 100%;
+
+}

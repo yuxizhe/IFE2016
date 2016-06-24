@@ -28,17 +28,23 @@ var GalleryRow = function(selector,minHeight) {
 
 GalleryRow.prototype.append = function(photos) {
 	var self = this;
-	this.getRow().forEach(
-		function(photo){
-			var item = document.createElement('div');
-			item.className = 'galleryItem';
-			item.innerHTML = 
-				'<div >' +
-				'<img class="galleryPhoto" src="' + photo.image.small + '">' +
-				'</div>';
-			self.element.appendChild(item);
+	this.getRow(photos).forEach(
+		function(rows){
+			var row = document.createElement('div');
+			row.className = 'gallery-Row';
+			row.style.height = self.element.clientWidth / rows.aspectRatio + 'px';
+			row.innerHTML = rows.photos.reduce(function(html,photo){
+				html+= 
+					'<div class="galleryPhoto">' +
+					'<img  src="' + photo.image.small + '">' +
+					'</div>';
+				return html;
+			},'');
+			
+			self.element.appendChild(row);
+			console.log(row);
 		})
-	// 上面也是一个bind(this)的例子
+	
 };
 
 GalleryRow.prototype.getRow = function(photos) {
@@ -51,7 +57,7 @@ GalleryRow.prototype.getRow = function(photos) {
 
 	for (var i = 0; i < photos.length; i++) {
 		_photos.push(photos[i]);
-		aspectRatio += photes[i].aspect_ratio;
+		aspectRatio += photos[i].width/photos[i].height;
 
 		if (aspectRatio >= this.aspectRatio) {
 			row.push({
@@ -64,6 +70,7 @@ GalleryRow.prototype.getRow = function(photos) {
 	}
 	// 保存最后一行的图片
 	this.photos = _photos;
+	console.log(row);
 	return row;
 };
 
