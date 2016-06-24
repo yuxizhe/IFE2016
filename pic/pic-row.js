@@ -42,7 +42,29 @@ GalleryRow.prototype.append = function(photos) {
 };
 
 GalleryRow.prototype.getRow = function(photos) {
-	
+	// 获取上次最后一行的photes   this.photos 作为全局变量用吧
+	photos = this.photos.concat(photos);
+
+	var aspectRatio = 0;
+	var _photos = [];
+	var row = [];
+
+	for (var i = 0; i < photos.length; i++) {
+		_photos.push(photos[i]);
+		aspectRatio += photes[i].aspect_ratio;
+
+		if (aspectRatio >= this.aspectRatio) {
+			row.push({
+				photos:_photos,
+				aspectRatio:aspectRatio
+			});
+			_photos = [];
+			aspectRatio =0;
+		}
+	}
+	// 保存最后一行的图片
+	this.photos = _photos;
+	return row;
 };
 
 
