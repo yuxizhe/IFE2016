@@ -35,8 +35,8 @@ GalleryRow.prototype.append = function(photos) {
 			row.style.height = self.element.clientWidth / rows.aspectRatio + 'px';
 			row.innerHTML = rows.photos.reduce(function(html,photo){
 				html+= 
-					'<div class="galleryPhoto">' +
-					'<img  src="' + photo.image.small + '">' +
+					'<div class="galleryPhotoItem">' +
+					'<img  class="galleryPhoto" src="' + photo.image.small + '">' +
 					'</div>';
 				return html;
 			},'');
