@@ -88,10 +88,10 @@ var Application = function(gallery){
 }
 
 Application.prototype.scroll = function() {
-	var scrollTop = document.body.scrollTop || document.documentElement.scrollTop
-	if((scrollY + innerHeight > document.body.clientHeight )&& !this.loading){
-		this.load();
-	}
+ scrollTop = document.body.scrollTop || document.documentElement.scrollTop
+	  if (scrollTop + innerHeight >= document.body.clientHeight && !this.loading) {
+	    this.load()
+	  }
 };
 
 // bind(this) 好像理解了  保证传递后的函数还能用this
