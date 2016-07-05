@@ -16,6 +16,9 @@ Background.prototype.init = function() {
 
 Background.prototype.randomPath = function() {
 	var i = 0,j=0;
+	while(i != this.row && j != this.col){
+		if(Math.)
+	}
 };
 
 Background.prototype.randomWall = function() {
