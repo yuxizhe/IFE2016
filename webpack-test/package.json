@@ -1,0 +1,14 @@
+{
+  "name": "webpacl",
+  "version": "1.0.0",
+  "description": "test for webpack",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "yu",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^1.13.1"
+  }
+}
