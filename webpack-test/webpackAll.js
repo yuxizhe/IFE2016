@@ -44,15 +44,22 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	window.onload = function(){
-	  document.getElementsByTagName('p')[0].innerHTML = "webpack";
-	  __webpack_require__(1);
-	  __webpack_require__(2)
-	}
+	module.exports = __webpack_require__(1);
 
 
 /***/ },
 /* 1 */
+/***/ function(module, exports, __webpack_require__) {
+
+	window.onload = function(){
+	  document.getElementsByTagName('p')[0].innerHTML = "webpack";
+	  __webpack_require__(2);
+	  __webpack_require__(3)
+	}
+
+
+/***/ },
+/* 2 */
 /***/ function(module, exports) {
 
 	var b = document.createElement('p');
@@ -61,16 +68,16 @@
 
 
 /***/ },
-/* 2 */
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(3);
+	var content = __webpack_require__(4);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(5)(content, {});
+	var update = __webpack_require__(6)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -87,10 +94,10 @@
 	}
 
 /***/ },
-/* 3 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(4)();
+	exports = module.exports = __webpack_require__(5)();
 	// imports
 
 
@@ -101,7 +108,7 @@
 
 
 /***/ },
-/* 4 */
+/* 5 */
 /***/ function(module, exports) {
 
 	/*
@@ -157,7 +164,7 @@
 
 
 /***/ },
-/* 5 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
