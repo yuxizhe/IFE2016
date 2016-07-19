@@ -10,6 +10,12 @@
   		<p>{{ message }}</p>
   		<input v-model="message">
 	</div>
+
+	<div id="list">
+		<li v-for="todo in todos">
+			{{todo.text}}
+		</li>
+	</div>
 	<script src="src/main.js"></script>
 </body>
 </html>
