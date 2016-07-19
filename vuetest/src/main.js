@@ -17,3 +17,15 @@ new Vue({
 		]
 	}
 })
+
+new Vue({
+	el:"#click",
+	data:{
+		message: "click change"
+	},
+	methods:{
+		clickButton:function () {
+			this.message = "changed!"
+		}
+	}
+})
