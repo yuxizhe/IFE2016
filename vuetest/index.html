@@ -22,6 +22,16 @@
 		<button v-on:click="clickButton">change</button>
 	</div>
 
+	<div id="todo">
+		<input v-model="newTodo" v-on:keyup.enter="addTodo" >
+		<ul>
+			<li v-for="todo in todos ">
+				<span>{{ todo.text}}</span>
+				<button v-on:click="remove($index)">X</button>
+			</li>
+		</ul>
+	</div>
+
 	<script src="src/main.js"></script>
 </body>
 </html>

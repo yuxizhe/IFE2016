@@ -29,3 +29,25 @@ new Vue({
 		}
 	}
 })
+
+new Vue({
+	el:"#todo",
+	data:{
+		newTodo:'',
+		todos:[
+			{text:"first item"}
+		]
+	},
+	methods:{
+		addTodo:function () {
+			var text = this.newTodo.trim();
+			if (text) {
+				this.todos.push({text:text});
+				this.newTodo = ''
+			}
+		},
+		remove:function (index) {
+			this.todos.splice(index,1)
+		}
+	}
+})
