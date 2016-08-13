@@ -27,7 +27,7 @@
 		<ul>
 			<li v-for="todo in todos ">
 				<span>{{ todo.text}}</span>
-				<button v-on:click="remove($index)">X</button>
+				<button v-on:click="remove(todo)">X</button>
 			</li>
 		</ul>
 	</div>
