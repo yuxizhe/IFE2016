@@ -4,6 +4,12 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<script src="node_modules/vue/dist/vue.min.js"></script>
+	<style type="text/css">
+		.completed{
+			color: #d9d9d9;
+    		text-decoration: line-through;
+		}
+	</style>
 </head>
 <body>
 	<div id="app">
@@ -25,7 +31,9 @@
 	<div id="todo">
 		<input v-model="newTodo" v-on:keyup.enter="addTodo" >
 		<ul>
-			<li v-for="todo in todos ">
+			<li v-for="todo in todos "
+				:class="{completed:todo.completed}">
+				<input type="checkbox" v-model="todo.completed">
 				<span>{{ todo.text}}</span>
 				<button v-on:click="remove(todo)">X</button>
 			</li>
