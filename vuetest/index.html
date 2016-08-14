@@ -9,6 +9,13 @@
 			color: #d9d9d9;
     		text-decoration: line-through;
 		}
+		.todo-list li .edit{
+			display: none;
+		}
+		.todo-list li.editing .edit{
+			display: block;
+			margin: 0 0 0 10px;
+		}
 	</style>
 </head>
 <body>
@@ -28,14 +35,17 @@
 		<button v-on:click="clickButton">change</button>
 	</div>
 
-	<div id="todo">
+	<div id="todo" class="todo-list">
 		<input v-model="newTodo" v-on:keyup.enter="addTodo" >
 		<ul>
 			<li v-for="todo in todos "
-				:class="{completed:todo.completed}">
+				:class="{completed:todo.completed, editing: todo.editing}">
+				<div>
 				<input type="checkbox" v-model="todo.completed">
-				<span>{{ todo.text}}</span>
+				<label @dblclick="edittodo(todo)">{{ todo.text}}</label>
 				<button v-on:click="remove(todo)">X</button>
+				</div>
+				<input type="text" class="edit" v-model="todo.text">
 			</li>
 		</ul>
 	</div>

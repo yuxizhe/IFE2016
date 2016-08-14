@@ -30,7 +30,7 @@
 						<input class="edit" type="text"
 							v-model="todo.title"
 							v-todo-focus="todo == editedTodo"
-							@blur="doneEdit(todo)"
+							
 							@keyup.enter="doneEdit(todo)"
 							@keyup.esc="cancelEdit(todo)">
 					</li>

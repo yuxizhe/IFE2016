@@ -30,25 +30,30 @@ new Vue({
 	}
 })
 
-new Vue({
+var aa = new Vue({
 	el:"#todo",
 	data:{
 		newTodo:'',
 		todos:[
-			{text:"first item"}
+			{text:"first item" ,editing: false}
 		]
 	},
 	methods:{
 		addTodo:function () {
 			var text = this.newTodo.trim();
 			if (text) {
-				this.todos.push({text:text});
+				// 值不提前声明的话，在HTML里面调用会慢一步
+				this.todos.push({text:text , editing: false});
 				this.newTodo = ''
 			}
 		},
 		remove:function (index) {
 			//this.todos.splice(index,1)
 			this.todos.$remove(index);
+		},
+		edittodo:function(todo) {
+			//想在这里对单个TODO的属性进行改变怎么弄 
+			todo.editing = true;
 		}
 	}
 })
