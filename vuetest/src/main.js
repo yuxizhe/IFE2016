@@ -54,6 +54,9 @@ var aa = new Vue({
 		edittodo:function(todo) {
 			//想在这里对单个TODO的属性进行改变怎么弄 
 			todo.editing = true;
+		},
+		doneEdit:function (todo) {
+			todo.editing = false;
 		}
 	}
 })

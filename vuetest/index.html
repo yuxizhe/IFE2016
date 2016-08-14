@@ -5,6 +5,9 @@
 	<title>Document</title>
 	<script src="node_modules/vue/dist/vue.min.js"></script>
 	<style type="text/css">
+		li{
+			list-style-type:none
+		}
 		.completed{
 			color: #d9d9d9;
     		text-decoration: line-through;
@@ -15,6 +18,9 @@
 		.todo-list li.editing .edit{
 			display: block;
 			margin: 0 0 0 10px;
+		}
+		.todo-list li.editing .view{
+			display: none;
 		}
 	</style>
 </head>
@@ -40,12 +46,15 @@
 		<ul>
 			<li v-for="todo in todos "
 				:class="{completed:todo.completed, editing: todo.editing}">
-				<div>
+				<div class="view">
 				<input type="checkbox" v-model="todo.completed">
 				<label @dblclick="edittodo(todo)">{{ todo.text}}</label>
 				<button v-on:click="remove(todo)">X</button>
 				</div>
-				<input type="text" class="edit" v-model="todo.text">
+				<input type="text" class="edit" v-model="todo.text"
+					@blur="doneEdit(todo)"
+					@keyup.enter="doneEdit(todo)"
+					@keyup.esc="cancelEdit(todo)">
 			</li>
 		</ul>
 	</div>
