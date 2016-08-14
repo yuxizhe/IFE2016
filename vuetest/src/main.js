@@ -30,13 +30,22 @@ new Vue({
 	}
 })
 
+var STORAGE_KEY = 'todos-vuejs';
+
+var todosStorage = {
+		fetch: function () {
+			return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+		},
+		save: function (todos) {
+			localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
+		}
+	};
+
 var aa = new Vue({
 	el:"#todo",
 	data:{
 		newTodo:'',
-		todos:[
-			{text:"first item" ,editing: false}
-		]
+		todos:todosStorage.fetch()
 	},
 	methods:{
 		addTodo:function () {
@@ -57,6 +66,14 @@ var aa = new Vue({
 		},
 		doneEdit:function (todo) {
 			todo.editing = false;
+		}
+	},
+	watch:{
+		todos:{
+			handler: function (todos){
+				todosStorage.save(todos);
+			},
+			deep:true
 		}
 	}
 })
