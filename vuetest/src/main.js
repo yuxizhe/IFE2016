@@ -124,4 +124,27 @@ var grid = new Vue({
 	}
 })
 
+var svg = new Vue({
+	el:"#svg",
+	data:{
+		List:[
+			{text: "A",value:100},
+			{text: "B",value:100},
+			{text: "C",value:100}
+		]
+	},
+	methods:{
+		newRow:function () {
+			var text = this.newAngle.trim();
+			if(text){
+				this.List.push({text:text,value:100});
+				this.newAngle='';
+			}
+		},
+		delete:function (row) {
+			this.List.$remove(row);
+		}
+	}
+})
+
 

@@ -96,8 +96,24 @@
 		:Data="gridData">
 			
 		</grid-list>
-
 	</div>
+
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<div id="svg">
+		<input type="text" v-model="newAngle"
+		@keyup.enter="newRow">
+		<li v-for="row in List">
+			{{row.text}}
+			<input type="range" v-model="row.value">
+			{{row.value}}
+			<button @click="delete(row)">X</button>
+		</li>
+	</div>
+
 
 	<script src="src/main.js"></script>
 </body>
