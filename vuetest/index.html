@@ -64,6 +64,28 @@
 		</div>
 	</div>
 
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<div id="grid">
+		<form>
+			Search<input type="text" v-model="searchQuery">
+		</form>
+		<br>
+		<table>
+			<tr>
+				<th v-for="type in gridColumns" 
+				@click="sortQuery=type">{{type}}</th>
+			</tr>
+			<tr v-for="line in gridData
+				|orderBy sortQuery">
+				<td v-for="type in line">{{type}}</td>
+			</tr>
+		</table>
+	</div>
+
 	<script src="src/main.js"></script>
 </body>
 </html>
