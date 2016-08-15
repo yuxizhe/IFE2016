@@ -52,7 +52,7 @@ var aa = new Vue({
 			var text = this.newTodo.trim();
 			if (text) {
 				// 值不提前声明的话，在HTML里面调用会慢一步
-				this.todos.push({text:text , editing: false});
+				this.todos.push({text:text , editing: false, show:true});
 				this.newTodo = ''
 			}
 		},
@@ -66,6 +66,21 @@ var aa = new Vue({
 		},
 		doneEdit:function (todo) {
 			todo.editing = false;
+		},
+		completedTodo:function () {
+			this.todos.forEach(function (todo) {
+				todo.show = todo.completed;
+			})
+		},
+		activeTodo:function () {
+			this.todos.forEach(function (todo) {
+				todo.show = !todo.completed;
+			})
+		},
+		AllTodo:function() {
+			this.todos.forEach(function (todo) {
+				todo.show = true;
+			})
 		}
 	},
 	watch:{

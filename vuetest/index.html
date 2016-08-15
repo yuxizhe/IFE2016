@@ -46,7 +46,7 @@
 		<ul>
 			<li v-for="todo in todos "
 				:class="{completed:todo.completed, editing: todo.editing}">
-				<div class="view">
+				<div class="view" v-show="todo.show">
 				<input type="checkbox" v-model="todo.completed">
 				<label @dblclick="edittodo(todo)">{{ todo.text}}</label>
 				<button v-on:click="remove(todo)">X</button>
@@ -57,6 +57,11 @@
 					@keyup.esc="cancelEdit(todo)">
 			</li>
 		</ul>
+		<div v-show="todos.length">
+			<button @click ="AllTodo()">all</button>
+			<button @click="activeTodo()">active</button>
+			<button @click="completedTodo()">completed</button>
+		</div>
 	</div>
 
 	<script src="src/main.js"></script>
