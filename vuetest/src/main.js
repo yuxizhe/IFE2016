@@ -30,7 +30,7 @@ new Vue({
 	}
 })
 
-var STORAGE_KEY = 'todos-vuejs';
+var STORAGE_KEY = 'todo-vuejs';
 
 var todosStorage = {
 		fetch: function () {
