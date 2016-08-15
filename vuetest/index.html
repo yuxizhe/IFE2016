@@ -80,6 +80,7 @@
 				@click="sortQuery=type">{{type}}</th>
 			</tr>
 			<tr v-for="line in gridData
+				|filterBy searchQuery
 				|orderBy sortQuery">
 				<td v-for="type in line">{{type}}</td>
 			</tr>
