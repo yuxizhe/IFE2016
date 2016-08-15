@@ -93,6 +93,17 @@ var aa = new Vue({
 	}
 })
 
+Vue.component('grid-list',{
+	template: "#grid-list",
+	replace:true,
+	props:{
+		searchQuery:String,
+		sortQuery:String,
+		Columns:Array,
+		Data:Array
+	}
+})
+
 var grid = new Vue({
 	el:"#grid",
 	data:{
