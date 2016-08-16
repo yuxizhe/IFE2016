@@ -121,10 +121,10 @@
 	<p>树状结构</p>
 	<script type="text/x-template" id="tree-list">
 		<li>
-			<div>
+			<div @click="open=!open">
 				{{datatree.name}}
 			</div>
-			<ul>
+			<ul v-show="open">
 				<tree-list v-for=" model in datatree.children"
 					:datatree="model">	
 				</tree-list>

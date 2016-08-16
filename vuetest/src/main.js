@@ -181,6 +181,9 @@ Vue.component('tree-list',{
 	template:"#tree-list",
 	replace:true,
 	props:{datatree:Object},
+	data:function () {
+		return {open:false}
+	}
 })
 
 var tree = new Vue({
