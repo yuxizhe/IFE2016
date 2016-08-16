@@ -147,4 +147,47 @@ var svg = new Vue({
 	}
 })
 
+// demo data
+var Datademo = {
+  name: 'My Tree',
+  children: [
+    { name: 'hello' },
+    { name: 'wat' },
+    {
+      name: 'child folder',
+      children: [
+        {
+          name: 'child folder',
+          children: [
+            { name: 'hello' },
+            { name: 'wat' }
+          ]
+        },
+        { name: 'hello' },
+        { name: 'wat' },
+        {
+          name: 'child folder',
+          children: [
+            { name: 'hello' },
+            { name: 'wat' }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+Vue.component('tree-list',{
+	template:"#tree-list",
+	replace:true,
+	props:{datatree:Object},
+})
+
+var tree = new Vue({
+	el:"#tree",
+	data:{
+		Data:Datademo
+	}
+})
+
 

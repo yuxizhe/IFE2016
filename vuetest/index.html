@@ -114,6 +114,28 @@
 		</li>
 	</div>
 
+	<br>
+	<br>
+	<br>
+	<br>
+	<p>树状结构</p>
+	<script type="text/x-template" id="tree-list">
+		<li>
+			<div>
+				{{datatree.name}}
+			</div>
+			<ul>
+				<tree-list v-for=" model in datatree.children"
+					:datatree="model">	
+				</tree-list>
+			</ul>
+		</li>
+	</script>
+	<div id="tree">
+		<tree-list 
+			:datatree="Data"
+		></tree-list>
+	</div>
 
 	<script src="src/main.js"></script>
 </body>
