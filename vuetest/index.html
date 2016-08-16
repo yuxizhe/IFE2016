@@ -121,7 +121,8 @@
 	<p>树状结构</p>
 	<script type="text/x-template" id="tree-list">
 		<li>
-			<div @click="open=!open">
+			<div @click="open=!open"
+				 @dblclick="changeToFolder">
 				{{datatree.name}}
 			</div>
 			<ul v-show="open">

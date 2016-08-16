@@ -183,6 +183,24 @@ Vue.component('tree-list',{
 	props:{datatree:Object},
 	data:function () {
 		return {open:false}
+	},
+	methods:{
+		changeToFolder:function () {
+			// 这里是添加属性 不是添加值 所以不能用push  直接.后面直接加就行  但是这种不会触发更新
+			// this.datatree.children=[{name:"new stuff"}];
+
+			//这种添加方式不会触发更新
+			// this.datatree.children = [];
+			// this.datatree.children.push({
+		 //        name: 'new stuff'
+		 //      })
+			
+			//vue 中添加能触发更新的属性是Vue.set
+			if(!this.datatree.children){
+			Vue.set(this.datatree, 'children', [{name:"new stuff"}])
+        
+			this.open = true}
+		}
 	}
 })
 
