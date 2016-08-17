@@ -33,6 +33,7 @@ router.beforeEach(function () {
 })
 
 router.redirect({
+  // 重定向任意未匹配路径到 /news
   '*': '/news/1'
 })
 
