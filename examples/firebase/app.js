@@ -1,8 +1,7 @@
 var emailRE = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
 // Firebase ref
-var usersRef = new Firebase('https://vue-demo.firebaseIO.com/users')
-
+var usersRef = firebase.database().ref('/test');
 // create Vue app
 var app = new Vue({
   // element to mount to
@@ -37,11 +36,11 @@ var app = new Vue({
   // methods
   methods: {
     addUser: function () {
-      if (this.isValid) {
+      // if (this.isValid) {
         usersRef.push(this.newUser)
         this.newUser.name = ''
         this.newUser.email = ''
-      }
+      // }
     },
     removeUser: function (user) {
       usersRef.child(user['.key']).remove()

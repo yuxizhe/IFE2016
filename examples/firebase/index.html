@@ -7,15 +7,25 @@
     <!-- Vue -->
     <script src="../../dist/vue.js"></script>
     <!-- Firebase -->
-    <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyD4az7go2CWyb-Yy_2wHISnfoytLEzUg-4",
+    authDomain: "yuxizhe2008.firebaseapp.com",
+    databaseURL: "https://yuxizhe2008.firebaseio.com",
+    storageBucket: "",
+  };
+  firebase.initializeApp(config);
+</script>
     <!-- VueFire -->
-    <script src="https://cdn.jsdelivr.net/vuefire/1.0.1/vuefire.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/vuefire/1.2.0/vuefire.min.js"></script>
   </head>
   <body>
     <div id="app">
       <ul>
         <li class="user" v-for="user in users" transition>
-          <span>{{user.name}} - {{user.email}}</span>
+          <span>{{user.name}}--{{user.email}}</span>
           <button v-on:click="removeUser(user)">X</button>
         </li>
       </ul>
