@@ -2,6 +2,9 @@ var emailRE = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@(
 
 // Firebase ref
 var usersRef = firebase.database().ref('/test');
+
+var a ;
+  usersRef.on('value',function(value){a=value.val()});
 // create Vue app
 var app = new Vue({
   // element to mount to
