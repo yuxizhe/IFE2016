@@ -25,6 +25,7 @@ module.exports = {
     fallback: [path.join(__dirname, '../node_modules')]
   },
   module: {
+    //加载器
     loaders: [
       {
         test: /\.vue$/,
