@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<li v-for="a in data">a</li>
+		<li v-for="a in D">a</li>
 	</div>
 </template>
 
@@ -10,7 +10,9 @@
 	];
 	export default{
 		data:{
-			data:number
+			D:[
+		3,2,34,2,41,5,123,1234,123,51
+	]
 		}
 	}
 </script>
