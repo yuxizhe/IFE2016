@@ -17,14 +17,17 @@
     </div>
 
     <div class="left">
-        
+        <button v-link="{path: '/1'}">1</button>
+        <button v-link="{path: '/2'}">2</button>
+        <button v-link="{path: '/3'}">3</button>
     </div>  
 
-    <div class="right">
-        <h1>姓名：{{name}}</h1>
+    <router-view class="right">
+        <!-- <h1>姓名：{{name}}</h1>
         <h2>{{age}}</h2>
-        <div class="content"></div>
-    </div>
+        <div class="content"></div> -->
+    </router-view>
+
 
     <div class="footer">
         footer
