@@ -12,27 +12,57 @@
     }
 </script>
 <template>
-    <div>
+    <div class="header">header
+        
+    </div>
+
+    <div class="left">
+        
+    </div>  
+
+    <div class="right">
         <h1>姓名：{{name}}</h1>
         <h2>{{age}}</h2>
+        <div class="content"></div>
     </div>
+
+    <div class="footer">
+        footer
+    </div>
+
 </template>
-<style lang="sass">
-    /*一定要加lang不然无法编译*/
-    /*测试一下对sass的编译*/
-    $qwe:#098;
-    body{
-        background-color: $qwe;
-        h1{
-            background-color: #eee;
-            color: red;
-            transform: translate(10%, 10%);/*测试自动添加前缀*/
-        }
-        h1:hover{
-            height:100px;
-        }
-        h2{
-            background-color: #999;
-        }
-    }
+<style>
+   
+.header{
+    /*display: block;*/
+    height: 50px;
+    background: green
+}
+.footer{
+    height: 50px;
+    background: blue;
+    bottom: 0;
+    position: absolute;
+    width: 100%
+}
+.left{
+    position: absolute;
+    left: 10px;
+    top: 58px;
+    bottom: 50px;
+    /*height: 100%;*/
+    width: 200px;
+    background: red
+}
+.right{
+    position: absolute;
+    left: 210px;
+    width: 100%;
+    bottom: 50px;
+    top: 58px;
+    overflow: auto;
+}
+.content{
+    height: 2000px;
+}
 </style>
