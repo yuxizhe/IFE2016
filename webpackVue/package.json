@@ -11,6 +11,8 @@
   "author": "yu",
   "license": "ISC",
   "dependencies": {
+    "es6-promise": "^3.2.1",
+    "request": "^2.74.0",
     "vue": "^1.0.18",
     "vue-router": "^0.7.13"
   },
