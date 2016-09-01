@@ -5,6 +5,7 @@ import FirstPage from './components/FirstPage.vue'
 import SecondPage from './components/SecondPage.vue'
 import ThirdPage from './components/ThirdPage.vue'
 
+
 Vue.config.debug = true;
 
 Vue.use(Router)

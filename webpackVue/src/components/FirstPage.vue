@@ -1,12 +1,51 @@
 <template>
-	<div>FirstPage</div>
+<div>
+	<div v-for ="question in questions">
+		{{question.id}}<li >{{question.question}}</li>
+		<img src="{{question.url}}"><br>
+		<input type="radio" name="">{{question.item1}}<br>
+		<input type="radio" name="">{{question.item2}}<br>
+		<input  v-show="question.item3!=''" type="radio" name="">{{question.item3}}<br>
+		<input v-show="question.item4!=''" type="radio" name="">{{question.item4}}<br>
+	</div>
+</div>
 </template>
 
 <script >
+
+	import { Promise } from 'es6-promise'
+
+    function request(url) {
+      return new Promise(function (resolve) {
+        var xhr = new XMLHttpRequest()
+        xhr.open('GET', url)
+        xhr.setRequestHeader('apikey','e4288f19fe0231d205fd43745d7b15fe')
+        xhr.send()
+        xhr.addEventListener('load', function () {
+          resolve(JSON.parse(this.response))
+        })
+      })
+    }
 	
 	export default {
 
-		name:'FirstPage',
+		//新建的data还必须用这种形式呢，之前的形式添加不进去
+		data(){
+			return{
+			questions:[]
+			}
+		},
+
+		route:{
+			data(trans) {
+				var _this =this;
+				request('http://apis.baidu.com/bbtapi/jztk/jztk_query?subject=4').then(result =>{
+                     _this.questions = result.result
+                    //console.log(result)
+                    });
+				trans.next();
+			}
+		}
 
 		
 	}
