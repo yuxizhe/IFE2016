@@ -131,6 +131,9 @@
     overflow: auto;
 }
 .content{
-    height: 2000px;
+    
+}
+.page{
+        display: block;
 }
 </style>

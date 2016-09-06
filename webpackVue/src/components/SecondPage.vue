@@ -1,12 +1,17 @@
 <template>
 <div>
-	<div class="card demo-card-header-pic" v-for ="question in cook">
+	<div class="card demo-card-header-pic" v-for ="question in cook" >
+		<div :href="'/#!/cook/' + question.id">
 		<img  class="img2" width='100' class='card-cover' src="http://tnfs.tngou.net/image{{question.img}}">
 		<div class="text">
 		{{question.name}}<br>
 		{{question.keywords}}
 		</div>
+		<a :href="'/#!/cook/' + question.id">详细</a>
 		</div>
+		</div>
+
+	
 </div>
 </template>
 

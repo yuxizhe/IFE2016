@@ -4,19 +4,8 @@ import app from './components/app.vue';
 import FirstPage from './components/FirstPage.vue'
 import SecondPage from './components/SecondPage.vue'
 import ThirdPage from './components/ThirdPage.vue'
-import { Promise } from 'es6-promise'
+import CookDetailPage from './components/CookDetailPage.vue'
 
-    function request(url) {
-      return new Promise(function (resolve) {
-        var xhr = new XMLHttpRequest()
-        xhr.open('GET', url)
-        xhr.setRequestHeader('apikey','e4288f19fe0231d205fd43745d7b15fe')
-        xhr.send()
-        xhr.addEventListener('load', function () {
-          resolve(JSON.parse(this.response))
-        })
-      })
-    }
 
 Vue.config.debug = true;
 
@@ -31,8 +20,8 @@ var router = new Router({
     //如果不是html5模式的话，经过客户端js运行之后会变成 http://localhost:3000/foo/#!/
     
     //设置了html5模式后，加载完js后不会加上#!这2个类似锚点的字符，实现前后端路由统一如果用户刷新浏览器的话，服务端也能渲染出相应的页面。
-    history: true, //html5模式 去掉锚点 
-    saveScrollPosition: true //记住页面的滚动位置 html5模式适用，实际使用下来没用
+    // history: true, //html5模式 去掉锚点 
+    // saveScrollPosition: true //记住页面的滚动位置 html5模式适用，实际使用下来没用
 
 })
 
@@ -45,6 +34,9 @@ router.map({
 	},
 	'/3':{
 		component:ThirdPage
+	},
+	'/cook/:id':{
+		component:CookDetailPage
 	}
 })
 
