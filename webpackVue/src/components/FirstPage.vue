@@ -2,7 +2,7 @@
 <div>
 	<div class="card demo-card-header-pic" v-for ="question in questions">
 		{{question.id}}<li >{{question.question}}</li>
-		<img class='card-cover' src="{{question.url}}"><br>
+		<img class='img' src="{{question.url}}"><br>
 		<input type="radio" name="">{{question.item1}}<br>
 		<input type="radio" name="">{{question.item2}}<br>
 		<input  v-show="question.item3!=''" type="radio" name="">{{question.item3}}<br>
@@ -50,3 +50,10 @@
 		
 	}
 </script>
+
+<style >
+	.img{
+		width: 500px;
+		margin: 10px
+	}
+</style>

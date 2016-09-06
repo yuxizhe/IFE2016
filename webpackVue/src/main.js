@@ -36,5 +36,8 @@ router.map({
 	}
 })
 
-
+router.redirect({
+  // 重定向任意未匹配路径到 /news
+  '*': '/2'
+})
 router.start(app,'#app')
