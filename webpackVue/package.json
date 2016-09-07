@@ -6,15 +6,18 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --inline --hot --no-info --colors --host 0.0.0.0 --port 8080",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+    "build": " cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "author": "yu",
   "license": "ISC",
   "dependencies": {
+    "cross-env": "^2.0.1",
     "es6-promise": "^3.2.1",
+    "firebase": "^3.3.0",
     "request": "^2.74.0",
     "vue": "^1.0.18",
-    "vue-router": "^0.7.13"
+    "vue-router": "^0.7.13",
+    "vuefire": "^1.2.0"
   },
   "devDependencies": {
     "autoprefixer-loader": "^2.0.0",
