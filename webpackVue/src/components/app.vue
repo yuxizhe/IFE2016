@@ -43,11 +43,12 @@
     我的网页
         
     </div>
-
-    <router-view class="middle">
+    <!-- router-view 上不要加css  没法显示  要在外面加 -->
+    <div class="middle">
+    <router-view >
         
     </router-view>
-
+    </div>
 
     <div class="footer">
         <ul v-link="{path: '/1'}">驾照</ul>

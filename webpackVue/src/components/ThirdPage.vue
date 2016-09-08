@@ -1,10 +1,11 @@
 <template>
-	<div>Firebase</div>
-	<form id="form" v-on:submit.prevent="addUser">
+	<div class="page3-div">Firebase</div>
+	<form  v-on:submit.prevent="addUser">
         <input v-model="newUser.name">
         <input v-model="newUser.email">
         <input type="submit" value="Add User">
       </form>
+      <div>为什么位置不对</div>
 </template>
 <script >
 	import firebase from "firebase"
@@ -30,9 +31,9 @@
     }
   },
 
-  	firebase:{
-  		users:usersRef
-  	},
+  	// firebase:{
+  	// 	users:usersRef
+  	// },
   	 methods: {
     addUser: function () {
       // if (this.isValid) {
@@ -47,3 +48,12 @@
   }
   }
 </script>
+<style >
+	
+.page3-div{
+	width: 100%;
+	text-align: center;
+	position: relative;
+
+}
+</style>
