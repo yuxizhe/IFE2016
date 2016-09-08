@@ -49,9 +49,9 @@
 
   		}
   	},
-	firebase:{
-    users: usersRef
-  },
+	// firebase:{
+ //    users: usersRef
+ //  },
   // 从hacker news学来的 终于知道怎么修改data数据了
 	created(){
 		var a=[];
@@ -78,7 +78,6 @@
       // }
     },
     removeUser: function (user) {
-    	console.log(Object.keys(user));
       usersRef.child(user.key).remove()
     }
   }
