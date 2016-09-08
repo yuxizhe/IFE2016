@@ -42,7 +42,7 @@ import {request} from './request.js'
 
 <style >
 	.img{
-		width: 500px;
+		width: 7rem;
 		margin: 10px
 	}
 </style>

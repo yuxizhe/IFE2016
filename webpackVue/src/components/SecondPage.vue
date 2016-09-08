@@ -1,8 +1,7 @@
 <template>
 <div>
-	<div class="card demo-card-header-pic" v-for ="question in cook" >
-		<div :href="'/#!/cook/' + question.id">
-		<img  class="img2" width='100' class='card-cover' src="http://tnfs.tngou.net/image{{question.img}}">
+	<div class="card" v-for ="question in cook" >
+		<img  class="img2" src="http://tnfs.tngou.net/image{{question.img}}">
 		<div class="text">
 		{{question.name}}<br>
 		{{question.keywords}}
@@ -45,8 +44,8 @@ import {request} from './request.js'
 <style>
 	.img2{
 		margin: 10px;
-		width: 100px;
-		height: 120px
+		width:  3.5rem;
+		height: 3rem
 	}
 	.text{
 		display: inline-block;
@@ -54,5 +53,11 @@ import {request} from './request.js'
     	top: 50%;
     	margin-top: -22px;
     	margin-left: 10px;
+    	font-size: 0.4rem
+	}
+	.card{
+		position: relative;
+		margin: 0.2rem;
+		background: white
 	}
 </style>

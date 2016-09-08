@@ -39,29 +39,26 @@
 </script>
 
 <template>
-  <!--   <div class="header">header
+    <div class="header">
+    我的网页
         
     </div>
 
-    <div class="left">
-        <button v-link="{path: '/1'}">1</button>
-        <button v-link="{path: '/2'}">2</button>
-        <button v-link="{path: '/3'}">3</button>
-        <button @click="getAjax()">getAjax</button>
-        <li v-for="question in questions">{{question.question}}</li>
-    </div>  
-
-    <router-view class="right">
+    <router-view class="middle">
         
     </router-view>
 
 
     <div class="footer">
-        footer
-    </div>
+        <ul v-link="{path: '/1'}">驾照</ul>
+        <ul v-link="{path: '/2'}">菜谱</ul>
+        <ul v-link="{path: '/3'}">数据</ul>
+        </div>  
 
-</template> -->
-  <div class="page-group">
+
+
+</template>
+ <!--  <div class="page-group">
        <div class="page">
   <header class="bar bar-nav">
     <a class="button button-link button-nav pull-left" href="/demos/card" data-transition='slide-out'>
@@ -98,21 +95,38 @@
   </div>
 
 
-
+ -->
 <style>
    
 .header{
     /*display: block;*/
-    height: 50px;
-    background: green
+    height: 1rem;
+    font-size: 0.4rem;
+    text-align: center;
+    /*文字垂直居中 vertical-align 不管用诶，改为行宽与div一致就好了*/
+    line-height: 1rem;
+    position: fixed;
+    background: #91D4DA;
+    width: 100%;
+    color:white;
 }
 .footer{
-    height: 50px;
-    background: blue;
+    height: 1rem;
     bottom: 0;
-    position: absolute;
-    width: 100%
+    background: #91D4DA;
+    position: fixed;
+    width: 100%;
+    display: flex;
+    color: white
+    
 }
+
+.footer ul{
+      flex: 1;
+      line-height: 1rem;
+      font-size: 0.3rem;
+      text-align: center;
+    }
 .left{
     position: absolute;
     left: 10px;
@@ -122,13 +136,18 @@
     width: 200px;
     background: red
 }
-.right{
+.middle{
     position: absolute;
-    left: 210px;
     width: 100%;
-    bottom: 50px;
-    top: 58px;
+    bottom: 1rem;
+    top: 1rem;
     overflow: auto;
+    background: #F8F8F8;
+    /*添加个最大宽度，防止变巨大*/
+    max-width: 10rem;
+    /*居中*/
+    left: 50%;
+    margin-left: -5rem;
 }
 .content{
     
