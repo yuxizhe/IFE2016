@@ -5,12 +5,11 @@ import FirstPage from './components/FirstPage.vue'
 import SecondPage from './components/SecondPage.vue'
 import ThirdPage from './components/ThirdPage.vue'
 import CookDetailPage from './components/CookDetailPage.vue'
-import VueFire from "vuefire"
 
 Vue.config.debug = true;
 
 Vue.use(Router)
-Vue.use(VueFire)
+
 var router = new Router({
 	//这里要好好说一下，一定要设置html5模式，不然前后端URL不统一会发生问题
     //比如访问 http://localhost:3000/ 服务端定义是访问index.ts这个路由文件

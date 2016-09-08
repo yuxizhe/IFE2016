@@ -1,6 +1,10 @@
 <template>
 	<div class="page3-div">Firebase</div>
-	<div v-for="user in users">{{user.name}}</div>
+	<div v-for="user in users">
+			{{user.name}}
+			{{user.email}}	
+			<button v-on:click="removeUser(user)">X</button>		
+			</div>
 	<form  v-on:submit.prevent="addUser">
         <input v-model="newUser.name">
         <input v-model="newUser.email">
@@ -10,7 +14,10 @@
 </template>
 <script >
 	import firebase from "firebase"
-	
+	import Vue from 'vue'
+	import VueFire from "vuefire"
+
+	Vue.use(VueFire);
 	//firebase = new Firebase();
 	var config = {
     apiKey: "AIzaSyD4az7go2CWyb-Yy_2wHISnfoytLEzUg-4",
@@ -21,10 +28,13 @@
   firebase.initializeApp(config);
 
 
+  
+
   var a;
   var usersRef = firebase.database().ref('/test');
 
-  
+  usersRef.on('value',function(value){a=value.val()});
+
   export default{
 
   	data(){
@@ -34,25 +44,29 @@
 		      email: ''
 		   			 }
   				,
-  			users: {name:1}
-		}},
+  			users: {}
+  				,keys:{}
 
+  		}
+  	},
 	firebase:{
-		users:usersRef
-	},
+    users: usersRef
+  },
+  // 从hacker news学来的 终于知道怎么修改data数据了
 	created(){
 		var a=[];
+		var aa;
 		var _this=this;
 		usersRef.on('value', snapshot => {
 		  a=snapshot.val();
+		  //终于把对象名存储为属性了，终于可以读出对象名了
+		  _this.keys=Object.keys(a);
 
-		  console.log(a);
-		 _this.users=a
+		 _this.users=a;
+		 for(aa=0;aa<_this.keys.length;aa++){
+		 	_this.users[_this.keys[aa]].key=this.keys[aa];
+		 };
 		});
-
-
-
-		// a.on('change',this.users=a)
 	},
   	
   	 methods: {
@@ -64,7 +78,8 @@
       // }
     },
     removeUser: function (user) {
-      usersRef.child(user['.key']).remove()
+    	console.log(Object.keys(user));
+      usersRef.child(user.key).remove()
     }
   }
   }
