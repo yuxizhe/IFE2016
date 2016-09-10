@@ -1,16 +1,17 @@
 <template>
-	<div class="page3-div">Firebase</div>
-	<div v-for="user in users">
+<div id="page3-content" class="page3-div">
+	<div >Firebase</div>
+	<div class="page3-message-div" v-for="user in users">
 			{{user.name}}
-			{{user.email}}	
-			<button v-on:click="removeUser(user)">X</button>		
+			<div class="page3-message">{{user.message}}	</div>
+			<!-- <button v-on:click="removeUser(user)">X</button>		 -->
 			</div>
-	<form  v-on:submit.prevent="addUser">
+	<form class="page-footer" v-on:submit.prevent="addUser">
         <input v-model="newUser.name">
-        <input v-model="newUser.email">
-        <input type="submit" value="Add User">
+        <input class="message-input" v-model="newUser.message">
+        <input type="submit" value="发送">
       </form>
-      <div>为什么位置不对</div>
+ </div>
 </template>
 <script >
 	import firebase from "firebase"
@@ -31,7 +32,7 @@
   
 
   var a;
-  var usersRef = firebase.database().ref('/test');
+  var usersRef = firebase.database().ref('/message');
 
   usersRef.on('value',function(value){a=value.val()});
 
@@ -40,8 +41,9 @@
   	data(){
   		return{
 		    newUser: {
-		      name: '',
-		      email: ''
+		    // 获取浏览器前几个字符
+		      name: navigator.userAgent.slice(13,19),
+		      message: ''
 		   			 }
   				,
   			users: {}
@@ -57,6 +59,7 @@
 		var a=[];
 		var aa;
 		var _this=this;
+		
 		usersRef.on('value', snapshot => {
 		  a=snapshot.val();
 		  //终于把对象名存储为属性了，终于可以读出对象名了
@@ -66,6 +69,7 @@
 		 for(aa=0;aa<_this.keys.length;aa++){
 		 	_this.users[_this.keys[aa]].key=this.keys[aa];
 		 };
+		 _this.moveBottom();
 		});
 	},
   	
@@ -73,12 +77,16 @@
     addUser: function () {
       // if (this.isValid) {
         usersRef.push(this.newUser)
-        this.newUser.name = ''
-        this.newUser.email = ''
+        // this.newUser.name = ''
+        this.newUser.message = ''
       // }
     },
     removeUser: function (user) {
       usersRef.child(user.key).remove()
+    },
+    moveBottom:function() {
+    	var consoleText = document.getElementById("page3-content");
+    	consoleText.scrollTop = consoleText.scrollHeight;
     }
   }
   }
@@ -86,9 +94,39 @@
 <style >
 	
 .page3-div{
-	width: 100%;
-	text-align: center;
-	position: relative;
+	position: absolute;
+    width: 100%;
+    bottom: 0.5rem;
+    top: 0;
+    overflow: auto;
 
 }
+.page3-message-div{
+	font-size: 0.4rem;
+}
+.page3-message {
+	display: block;
+    left: 1.5rem;
+    max-width: 7rem;
+    top: -0.4rem;
+    /*要想父元素获得子元素高度，子元素不能设置为relative	*/
+    position: relative;
+    word-break: break-all;
+}
+
+.page-footer{
+	position: fixed;
+    bottom: 1rem;
+    width: 10rem;
+    display: flex;
+    line-height: 0.5rem
+}
+
+.page-footer input{
+	flex: 1
+}
+.page-footer .message-input{
+	flex: 7
+}
+
 </style>
