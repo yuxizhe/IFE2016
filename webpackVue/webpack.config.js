@@ -36,9 +36,9 @@ module.exports = {
   babel: {
     presets: ['es2015'],
     plugins: ['transform-runtime']
-  }
+  },
     // 开启source-map，webpack有多种source-map，在官网文档可以查到
-    //devtool: 'eval-source-map'
+    devtool: 'eval-source-map'
 };
 
 if (process.env.NODE_ENV === 'production') {

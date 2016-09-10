@@ -69,7 +69,10 @@
 		 for(aa=0;aa<_this.keys.length;aa++){
 		 	_this.users[_this.keys[aa]].key=this.keys[aa];
 		 };
-		 _this.moveBottom();
+		 // 实例方法  实现 数据更新后，并且DOM更新完成后，执行的函数
+		 _this.$nextTick(function () {
+		 	_this.moveBottom();
+		 });
 		});
 	},
   	
