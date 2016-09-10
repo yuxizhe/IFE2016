@@ -37,8 +37,8 @@ module.exports = {
     presets: ['es2015'],
     plugins: ['transform-runtime']
   },
-    // 开启source-map，webpack有多种source-map，在官网文档可以查到
-    devtool: 'eval-source-map'
+    // 开启source-map，webpack有多种source-map，在官网文档可以查到   build 模式一定要把这个去掉 不然超大
+    //devtool: 'eval-source-map'
 };
 
 if (process.env.NODE_ENV === 'production') {
