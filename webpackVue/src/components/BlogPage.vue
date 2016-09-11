@@ -11,7 +11,7 @@
       <div v-for="blog in blogs">
        <div class="card blog-card"  >
           <div class="date">{{blog.time}}</div>
-          <div class="title" @click="blog.showw = !blog.showw">{{blog.title}}</div>
+          <a class="title" :href="'/#!/blog/' + blog.key" >{{blog.title}}</a>
           <div class="author">{{blog.author}}</div>
           <div class="like">{{blog.likes}}</div>
         </div>
