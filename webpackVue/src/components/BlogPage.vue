@@ -1,138 +1,118 @@
 <template>
-<div id="page3-content" class="page3-div">
-	<div >Firebase</div>
-	<div class="page3-message-div" v-for="user in users">
-			{{user.name}}
-			<div class="page3-message">{{user.message}}	</div>
-			<!-- <button v-on:click="removeUser(user)">X</button>		 -->
-			</div>
-	<form class="page-footer" v-on:submit.prevent="addUser">
-        <input v-model="newUser.name">
-        <input class="message-input" v-model="newUser.message">
-        <input type="submit" value="发送">
-      </form>
- </div>
+<div>
+    <form  v-on:submit.prevent="addPost">
+      标题<input type="text" v-model="newBlog.title" name=""><br>
+      内容<input type="text" v-model="newBlog.blog" name=""><br>
+      作者<input type="text" v-model="newBlog.author" name=""><br>
+      <input type="submit" name="" value="新建文章"></button>
+    </form>
+
+    <div>
+      <div v-for="blog in blogs">
+       <div class="card blog-card"  >
+          <div class="date">{{blog.time}}</div>
+          <div class="title" @click="showToggle(blog)">{{blog.title}}</div>
+          <div class="author">{{blog.author}}</div>
+          <div class="like">{{blog.showw}}</div>
+        </div>
+      <div  v-show="blog.showw">{{blog.blog}}</div>
+      </div>
+    </div>  
+</div>
+
 </template>
 <script >
-	// import firebase from "firebase"
-	// //import Vue from 'vue'
-	// //import VueFire from "vuefire"
-
-	// //Vue.use(VueFire);
-	// //firebase = new Firebase();
-	// var config = {
- //    apiKey: "AIzaSyD4az7go2CWyb-Yy_2wHISnfoytLEzUg-4",
- //    authDomain: "yuxizhe2008.firebaseapp.com",
- //    databaseURL: "https://yuxizhe2008.firebaseio.com",
- //    storageBucket: "",
- //  };
- //  firebase.initializeApp(config);
 
 import {firebaseData} from './request.js'
+import Vue from "vue"
   
-
-  var a;
-  // var usersRef = firebase.database().ref('/message');
-
   var usersRef = firebaseData('blog');
-
-  usersRef.on('value',function(value){a=value.val()});
 
   export default{
 
   	data(){
   		return{
-		    newUser: {
-		    // 获取浏览器前几个字符
-		      name: navigator.userAgent.slice(13,19),
-		      message: ''
+		    newBlog: {
+		      title: '标题测试',
+		      blog: '内容测试  内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试',
+          author:'fire',
+          time:'',
+          commit:[],
+          likes:'3',
+          showw:'0'
 		   			 }
-  				,
-  			users: {}
-  				,keys:{}
-
+  			,
+  		  blogs: {}
   		}
   	},
-	// firebase:{
- //    users: usersRef
- //  },
-  // 从hacker news学来的 终于知道怎么修改data数据了
+	
 	created(){
 		var a=[];
 		var aa;
 		var _this=this;
+    var keys;
 		
 		usersRef.on('value', snapshot => {
 		  a=snapshot.val();
       if(a==null)return;
 		  //终于把对象名存储为属性了，终于可以读出对象名了
-		  _this.keys=Object.keys(a);
+		  keys=Object.keys(a);
 
-		 _this.users=a;
-		 for(aa=0;aa<_this.keys.length;aa++){
-		 	_this.users[_this.keys[aa]].key=this.keys[aa];
+		 _this.blogs=a;
+		 for(aa=0;aa<keys.length;aa++){
+		 	_this.blogs[keys[aa]].key=keys[aa];
+      Vue.set(_this.blogs[keys[aa]],'showw',0);
 		 };
-		 // 实例方法  实现 数据更新后，并且DOM更新完成后，执行的函数
-		 _this.$nextTick(function () {
-		 	_this.moveBottom();
-		 });
 		});
 	},
   	
   	 methods: {
-    addUser: function () {
-      // if (this.isValid) {
-        usersRef.push(this.newUser)
-        // this.newUser.name = ''
-        this.newUser.message = ''
-      // }
+    addPost: function () {
+        var myDate = new Date();
+        this.newBlog.time=myDate.toLocaleDateString();
+        usersRef.push(this.newBlog)
+        // this.newBlog.blog = '';
+        // this.newBlog.title = ''
+
     },
-    removeUser: function (user) {
+    removePost: function (user) {
       usersRef.child(user.key).remove()
     },
     moveBottom:function() {
     	var consoleText = document.getElementById("page3-content");
     	consoleText.scrollTop = consoleText.scrollHeight;
+    },
+    showToggle:function (argument) {
+     // argument.show= !argument.show;
+      this.blogs[argument.key].showw = !argument.showw;
+      console.log(argument);
     }
   }
   }
 </script>
 <style >
 	
-.page3-div{
-	position: absolute;
-    width: 100%;
-    bottom: 0.5rem;
-    top: 0;
-    overflow: auto;
 
+.blog-card{
+  font-size: 0.3rem;
+  height: 0.3rem;
+  display: flex;
+  text-align: center;
 }
-.page3-message-div{
-	font-size: 0.4rem;
+.blog-card div{
+  flex:1;
 }
-.page3-message {
-	display: block;
-    left: 1.5rem;
-    max-width: 7rem;
-    top: -0.4rem;
-    /*要想父元素获得子元素高度，子元素不能设置为relative	*/
-    position: relative;
-    word-break: break-all;
+.blog-card .date{
+  flex: 2
 }
 
-.page-footer{
-	position: fixed;
-    bottom: 1rem;
-    width: 10rem;
-    display: flex;
-    line-height: 0.5rem
+.blog-card .title{
+  flex: 7;
+  text-align:left;
+}
+.blog-card .content{
+  display: block;
 }
 
-.page-footer input{
-	flex: 1
-}
-.page-footer .message-input{
-	flex: 7
-}
 
 </style>

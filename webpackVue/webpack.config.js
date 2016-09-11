@@ -56,5 +56,5 @@ if (process.env.NODE_ENV === 'production') {
     new webpack.optimize.OccurenceOrderPlugin()
   ]
 } else {
-  module.exports.devtool = '#source-map'
+  module.exports.devtool = 'eval-source-map'
 }
