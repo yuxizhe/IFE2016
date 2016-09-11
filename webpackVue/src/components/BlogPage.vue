@@ -13,7 +13,8 @@
           <div class="date">{{blog.time}}</div>
           <a class="title" :href="'/#!/blog/' + blog.key" >{{blog.title}}</a>
           <div class="author">{{blog.author}}</div>
-          <div class="like">{{blog.likes}}</div>
+          <div @click="likes(blog)" class="like">喜欢{{blog.likes}}</div>
+          <div @click="removePost(blog)">删除</div>
         </div>
       <div  v-show="blog.showw">{{blog.blog}}</div>
       </div>
@@ -80,6 +81,10 @@ import Vue from "vue"
     moveBottom:function() {
     	var consoleText = document.getElementById("page3-content");
     	consoleText.scrollTop = consoleText.scrollHeight;
+    },
+    likes:function (blog) {
+      blog.likes++;
+      usersRef.child(blog.key).update({likes:blog.likes});
     }
   }
   }
