@@ -11,9 +11,9 @@
       <div v-for="blog in blogs">
        <div class="card blog-card"  >
           <div class="date">{{blog.time}}</div>
-          <div class="title" @click="showToggle(blog)">{{blog.title}}</div>
+          <div class="title" @click="blog.showw = !blog.showw">{{blog.title}}</div>
           <div class="author">{{blog.author}}</div>
-          <div class="like">{{blog.showw}}</div>
+          <div class="like">{{blog.likes}}</div>
         </div>
       <div  v-show="blog.showw">{{blog.blog}}</div>
       </div>
@@ -38,8 +38,7 @@ import Vue from "vue"
           author:'fire',
           time:'',
           commit:[],
-          likes:'3',
-          showw:'0'
+          likes:'3'
 		   			 }
   			,
   		  blogs: {}
@@ -81,11 +80,6 @@ import Vue from "vue"
     moveBottom:function() {
     	var consoleText = document.getElementById("page3-content");
     	consoleText.scrollTop = consoleText.scrollHeight;
-    },
-    showToggle:function (argument) {
-     // argument.show= !argument.show;
-      this.blogs[argument.key].showw = !argument.showw;
-      console.log(argument);
     }
   }
   }
