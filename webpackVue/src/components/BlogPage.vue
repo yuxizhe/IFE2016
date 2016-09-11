@@ -14,6 +14,19 @@
  </div>
 </template>
 <script >
+	// import firebase from "firebase"
+	// //import Vue from 'vue'
+	// //import VueFire from "vuefire"
+
+	// //Vue.use(VueFire);
+	// //firebase = new Firebase();
+	// var config = {
+ //    apiKey: "AIzaSyD4az7go2CWyb-Yy_2wHISnfoytLEzUg-4",
+ //    authDomain: "yuxizhe2008.firebaseapp.com",
+ //    databaseURL: "https://yuxizhe2008.firebaseio.com",
+ //    storageBucket: "",
+ //  };
+ //  firebase.initializeApp(config);
 
 import {firebaseData} from './request.js'
   
@@ -21,7 +34,7 @@ import {firebaseData} from './request.js'
   var a;
   // var usersRef = firebase.database().ref('/message');
 
-  var usersRef = firebaseData('message');
+  var usersRef = firebaseData('blog');
 
   usersRef.on('value',function(value){a=value.val()});
 
@@ -51,6 +64,7 @@ import {firebaseData} from './request.js'
 		
 		usersRef.on('value', snapshot => {
 		  a=snapshot.val();
+      if(a==null)return;
 		  //终于把对象名存储为属性了，终于可以读出对象名了
 		  _this.keys=Object.keys(a);
 

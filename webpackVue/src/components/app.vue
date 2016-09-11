@@ -13,27 +13,6 @@
                 questions:[]
             }
         },
-        route:{
-            data:function (transition) {
-                console.log('data  change')
-                transition.next()
-            },
-            activate:function (transition) {
-                console.log('activate change')
-                transition.next()
-            },
-            deactivate:function (transition) {
-                console.log('deactivate change')
-                transition.next()
-            }
-        },
-        methods:{
-            getAjax(){
-                request('http://apis.baidu.com/bbtapi/jztk/jztk_query?subject=4').then(result =>{
-                    this.questions = result.result
-                    });
-            }
-        },
        
     }
 </script>
@@ -50,10 +29,11 @@
     </router-view>
     </div>
 
-    <div class="footer">
+    <div class="footer"> 
         <ul v-link="{path: '/1'}">驾照</ul>
         <ul v-link="{path: '/2'}">菜谱</ul>
         <ul v-link="{path: '/3'}">数据</ul>
+        <ul v-link="{path: '/4'}">博客</ul>
         </div>  
 
 

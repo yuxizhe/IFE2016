@@ -5,6 +5,7 @@ import FirstPage from './components/FirstPage.vue'
 import SecondPage from './components/SecondPage.vue'
 import ThirdPage from './components/ThirdPage.vue'
 import CookDetailPage from './components/CookDetailPage.vue'
+import BlogPage from './components/BlogPage.vue'
 
 Vue.config.debug = true;
 
@@ -33,6 +34,9 @@ router.map({
 	},
 	'/3':{
 		component:ThirdPage
+	},
+	'/4':{
+		component:BlogPage
 	},
 	'/cook/:id':{
 		component:CookDetailPage

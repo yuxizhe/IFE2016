@@ -7,11 +7,11 @@ module.exports = {
     entry: './src/main',
     // 输出
     output: {
-        path: path.join(__dirname, '../docs/dist'),
+        path: path.join(__dirname, '/dist'),
         // 文件地址，使用绝对路径形式
         filename: '[name].js',
         //[name]这里是webpack提供的根据路口文件自动生成的名字
-        //publicPath: '../docs/dist/'
+        publicPath: '/dist/'
         // 公共文件生成的地址
     },
 
