@@ -17,7 +17,8 @@
     "request": "^2.74.0",
     "vue": "^1.0.18",
     "vue-router": "^0.7.13",
-    "vuefire": "^1.2.0"
+    "vuefire": "^1.2.0",
+    "xml2js": "^0.4.17"
   },
   "devDependencies": {
     "autoprefixer-loader": "^2.0.0",

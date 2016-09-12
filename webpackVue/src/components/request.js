@@ -1,6 +1,10 @@
 import { Promise } from 'es6-promise'
 
 import firebase from "firebase"
+
+var http = require("http");
+
+var parseString = require('xml2js').parseString;
   //import Vue from 'vue'
   //import VueFire from "vuefire"
 
@@ -30,3 +34,25 @@ export  function request(url) {
         })
       })
     }
+
+export function download(url) {
+  
+  return new Promise(function(resolve){
+
+    http.get(url, function(res) {
+        var data = "";
+        res.on('data', function (chunk) {
+          data += chunk;
+        });
+        res.on("end", function() {
+          parseString(data, function (err, result) {
+          resolve(result);
+          });
+        });
+      }).on("error", function() {
+        resolve(null);
+      });
+
+  })
+  
+}
