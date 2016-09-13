@@ -2,15 +2,15 @@
 <div>
     
     <div>
-      <div v-for="blog in blogs">
+      <div v-for="movie in movies">
        <div class="card blog-card"  >
-          <div class="date">{{blog.time}}</div>
-          <a class="title" :href="'/#!/blog/' + blog.key" >{{blog.title}}</a>
-          <div class="author">{{blog.author}}</div>
-          <div @click="likes(blog)" class="like">喜欢{{blog.likes}}</div>
-          <div @click="removePost(blog)">删除</div>
+          <!-- <div class="date">{{blog.time}}</div> -->
+          <a class="title" :href="'/#!/movie/' + movie.key" >{{movie.title}}</a>
+          <!-- <div class="author">{{blog.author}}</div> -->
+          <div @click="likes(blog)" class="like">喜欢{{movie.likes}}</div>
+          <!-- <div @click="removePost(blog)">删除</div> -->
         </div>
-      <div  v-show="blog.showw">{{blog.blog}}</div>
+      <!-- <div  v-show="blog.showw">{{blog.blog}}</div> -->
       </div>
     </div>  
 </div>
@@ -28,72 +28,29 @@ import {download} from './request.js'
 
   	data(){
   		return{
-		    newBlog: {
-		      title: '标题测试',
-		      blog: '内容测试  内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试',
-          author:'fire',
-          time:'',
-          commit:[],
-          likes:'3'
-		   			 }
-  			,
-  		  blogs: {}
+  		  movies: {}
   		}
   	},
-    route:{
-      data(trans) {
-        var _this =this;
-        download('http://www.mp4ba.com/rss.php').then(function(result){
-            console.log(result);
-        });
-        trans.next();
-      }
-    },
 	
 	created(){
 		var a=[];
 		var aa;
 		var _this=this;
     var keys;
-
-    download('http://www.mp4ba.com/rss.php').then(function(result){
-            console.log(result);});
-        
-		
+	
 		usersRef.on('value', snapshot => {
 		  a=snapshot.val();
       if(a==null)return;
-		  //终于把对象名存储为属性了，终于可以读出对象名了
-		  keys=Object.keys(a);
-
-		 _this.blogs=a;
-		 for(aa=0;aa<keys.length;aa++){
-		 	_this.blogs[keys[aa]].key=keys[aa];
-      //Vue.set(_this.blogs[keys[aa]],'showw',0);
-		 };
+    		 _this.movies=a;
+         for(aa=0;aa<a.length;aa++){
+          _this.movies[aa].key=aa;
+          console.log(_this.movies[aa])
+        }
 		});
 	},
   	
   	 methods: {
-    addPost: function () {
-        var myDate = new Date();
-        this.newBlog.time=myDate.toLocaleDateString();
-        usersRef.push(this.newBlog)
-        // this.newBlog.blog = '';
-        // this.newBlog.title = ''
-
-    },
-    removePost: function (user) {
-      usersRef.child(user.key).remove()
-    },
-    moveBottom:function() {
-    	var consoleText = document.getElementById("page3-content");
-    	consoleText.scrollTop = consoleText.scrollHeight;
-    },
-    likes:function (blog) {
-      blog.likes++;
-      usersRef.child(blog.key).update({likes:blog.likes});
-    }
+  
   }
   }
 </script>
@@ -102,7 +59,7 @@ import {download} from './request.js'
 
 .blog-card{
   font-size: 0.3rem;
-  height: 0.3rem;
+  height: 0.8rem;
   display: flex;
   text-align: center;
 }
@@ -114,8 +71,11 @@ import {download} from './request.js'
 }
 
 .blog-card .title{
+  margin: 0.1rem;
   flex: 7;
   text-align:left;
+  max-width: 8rem;
+  word-break: break-all;
 }
 .blog-card .content{
   display: block;

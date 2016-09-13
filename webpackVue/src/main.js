@@ -8,6 +8,7 @@ import CookDetailPage from './components/CookDetailPage.vue'
 import BlogPage from './components/BlogPage.vue'
 import BlogPageDetail from './components/BlogPageDetail.vue'
 import Movie from './components/Movie.vue'
+import MoviePageDetail from "./components/MoviePageDetail.vue"
 
 Vue.config.debug = true;
 
@@ -34,6 +35,9 @@ router.map({
 	},
 	'/blog/:key':{
 		component:BlogPageDetail
+	},
+	'/movie/:key':{
+		component:MoviePageDetail
 	},
 	'/cook/:id':{
 		component:CookDetailPage

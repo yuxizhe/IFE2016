@@ -1,25 +1,28 @@
 import { Promise } from 'es6-promise'
 
-import firebase from "firebase"
+//import firebase from "firebase"
+import wilddog from "wilddog"
+//var http = require("http");
 
-var http = require("http");
+//var parseString = require('xml2js').parseString;
 
-var parseString = require('xml2js').parseString;
-  //import Vue from 'vue'
-  //import VueFire from "vuefire"
+  // var config = {
+  //   apiKey: "AIzaSyD4az7go2CWyb-Yy_2wHISnfoytLEzUg-4",
+  //   authDomain: "yuxizhe2008.firebaseapp.com",
+  //   databaseURL: "https://yuxizhe2008.firebaseio.com",
+  //   storageBucket: "",
+  // };
+  // firebase.initializeApp(config);
 
-  //Vue.use(VueFire);
-  //firebase = new Firebase();
   var config = {
-    apiKey: "AIzaSyD4az7go2CWyb-Yy_2wHISnfoytLEzUg-4",
-    authDomain: "yuxizhe2008.firebaseapp.com",
-    databaseURL: "https://yuxizhe2008.firebaseio.com",
-    storageBucket: "",
-  };
-  firebase.initializeApp(config);
+  syncDomain: "yuxizhe.wilddog.com",
+  syncURL: "https://yuxizhe.wilddogio.com" //输入节点 URL
+};
+wilddog.initializeApp(config);
 
   export function firebaseData(id){
-    return firebase.database().ref('/'+id);
+    //return firebase.database().ref('/'+id);
+    return wilddog.sync().ref('/'+id);
   };
 
 
@@ -35,24 +38,24 @@ export  function request(url) {
       })
     }
 
-export function download(url) {
+// export function download(url) {
   
-  return new Promise(function(resolve){
+//   return new Promise(function(resolve){
 
-    http.get(url, function(res) {
-        var data = "";
-        res.on('data', function (chunk) {
-          data += chunk;
-        });
-        res.on("end", function() {
-          parseString(data, function (err, result) {
-          resolve(result);
-          });
-        });
-      }).on("error", function() {
-        resolve(null);
-      });
+//     http.get(url, function(res) {
+//         var data = "";
+//         res.on('data', function (chunk) {
+//           data += chunk;
+//         });
+//         res.on("end", function() {
+//           parseString(data, function (err, result) {
+//           resolve(result);
+//           });
+//         });
+//       }).on("error", function() {
+//         resolve(null);
+//       });
 
-  })
+//   })
   
-}
+// }
