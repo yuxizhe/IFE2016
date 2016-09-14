@@ -1,28 +1,40 @@
 import { Promise } from 'es6-promise'
+//import wilddog from "wilddog";
+import firebase from "firebase"
 
-//import firebase from "firebase"
-import wilddog from "wilddog"
-//var http = require("http");
 
-//var parseString = require('xml2js').parseString;
+// firebase 0    wilddog 1
+var env = 0;
 
-  // var config = {
-  //   apiKey: "AIzaSyD4az7go2CWyb-Yy_2wHISnfoytLEzUg-4",
-  //   authDomain: "yuxizhe2008.firebaseapp.com",
-  //   databaseURL: "https://yuxizhe2008.firebaseio.com",
-  //   storageBucket: "",
-  // };
-  // firebase.initializeApp(config);
+if(env){
+    
 
-  var config = {
-  syncDomain: "yuxizhe.wilddog.com",
-  syncURL: "https://yuxizhe.wilddogio.com" //输入节点 URL
-};
-wilddog.initializeApp(config);
+    var config = {
+      syncDomain: "yuxizhe.wilddog.com",
+      syncURL: "https://yuxizhe.wilddogio.com" //输入节点 URL
+    };
+    wilddog.initializeApp(config);
+
+}
+else{
+  
+   //好像是因为 服务器端的firebase 需要google身份认证 所以会被墙。暂时用 wilddog
+     var config = {
+      apiKey: "AIzaSyD4az7go2CWyb-Yy_2wHISnfoytLEzUg-4",
+      authDomain: "yuxizhe2008.firebaseapp.com",
+      databaseURL: "https://yuxizhe2008.firebaseio.com",
+      storageBucket: "",
+      };
+      firebase.initializeApp(config);
+}
 
   export function firebaseData(id){
-    //return firebase.database().ref('/'+id);
-    return wilddog.sync().ref('/'+id);
+    if(env){
+      return wilddog.sync().ref('/'+id);
+    }else{
+    return firebase.database().ref('/'+id);
+    }
+    
   };
 
 

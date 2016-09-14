@@ -9,6 +9,7 @@ import BlogPage from './components/BlogPage.vue'
 import BlogPageDetail from './components/BlogPageDetail.vue'
 import Movie from './components/Movie.vue'
 import MoviePageDetail from "./components/MoviePageDetail.vue"
+import SMZDM from './components/SMZDM.vue'
 
 Vue.config.debug = true;
 
@@ -41,6 +42,9 @@ router.map({
 	},
 	'/cook/:id':{
 		component:CookDetailPage
+	},
+	'/smzdm':{
+		component:SMZDM
 	}
 })
 

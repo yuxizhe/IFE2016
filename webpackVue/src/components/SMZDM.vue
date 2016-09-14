@@ -4,10 +4,11 @@
     <div>
       <div v-for="movie in movies">
        <div class="card blog-card"  >
-          <!-- <div class="date">{{blog.time}}</div> -->
-          <a class="title" :href="'/#!/movie/' + movie.key" >{{movie.title}}</a>
+          
+          <!-- <img class = "smzdm-pic" src="{{movie.focus_pic}}" > -->
+          <a class="title"  >{{movie.title}}</a>
           <!-- <div class="author">{{blog.author}}</div> -->
-          <div @click="likes(blog)" class="like">喜欢{{movie.likes}}</div>
+          <!-- <div @click="likes(blog)" class="like">喜欢{{movie.likes}}</div> -->
           <!-- <div @click="removePost(blog)">删除</div> -->
         </div>
       <!-- <div  v-show="blog.showw">{{blog.blog}}</div> -->
@@ -22,7 +23,7 @@ import {firebaseData} from './request.js'
 //import {download} from './request.js'
 //import Vue from "vue"
   
-  var usersRef = firebaseData('rss');
+  var usersRef = firebaseData('SMZDM');
 
   export default{
 
@@ -79,6 +80,10 @@ import {firebaseData} from './request.js'
 }
 .blog-card .content{
   display: block;
+}
+.smzdm-pic{
+  width:2rem;
+  height: 2rem;
 }
 
 

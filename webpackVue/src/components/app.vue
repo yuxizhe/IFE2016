@@ -35,6 +35,7 @@
         <ul v-link="{path: '/3'}">数据</ul>
         <ul v-link="{path: '/blog'}">博客</ul>
         <ul v-link="{path: '/movie'}">电影</ul>
+        <ul v-link="{path: '/smzdm'}">好价</ul>
         </div>  
 
 </template>
