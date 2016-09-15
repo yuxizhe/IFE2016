@@ -15,43 +15,40 @@ Vue.config.debug = true;
 
 Vue.use(Router)
 
-var router = new Router({
-})
+var router = new Router({})
 
 router.map({
-	'/1':{
-		component:FirstPage
-	},
-	'/2':{
-		component:SecondPage
-	},
-	'/3':{
-		component:ThirdPage
-	},
-	'/blog':{
-		component:BlogPage
-	},
-	'movie':{
-		component:Movie
-	},
-	'/blog/:key':{
-		component:BlogPageDetail
-	},
-	'/movie/:key':{
-		component:MoviePageDetail
-	},
-	'/cook/:id':{
-		component:CookDetailPage
-	},
-	'/smzdm':{
-		component:SMZDM
-	}
+    '/1': {
+        component: FirstPage
+    },
+    '/2': {
+        component: SecondPage
+    },
+    '/3': {
+        component: ThirdPage
+    },
+    '/blog': {
+        component: BlogPage
+    },
+    'movie': {
+        component: Movie
+    },
+    '/blog/:key': {
+        component: BlogPageDetail
+    },
+    '/movie/:key': {
+        component: MoviePageDetail
+    },
+    '/cook/:id': {
+        component: CookDetailPage
+    },
+    '/smzdm': {
+        component: SMZDM
+    }
 })
 
 router.redirect({
-  // 重定向任意未匹配路径到 /news
-  '*': '/3'
+    // 重定向任意未匹配路径到 /news
+    '*': '/3'
 })
-router.start(app,'#app')
-
-
+router.start(app, '#app')

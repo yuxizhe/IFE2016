@@ -1,48 +1,41 @@
 <script>
-    //es6
-    // import Request from "request"
+//es6
+// import Request from "request"
 
 
-    export default {
-        el:"#app",
-         //data:function(){}，下面是es6写法
-         data () {
-            return {
-                name:"guowenfh",
-                age:"2q1",
-                questions:[]
-            }
-        },
-       
-    }
+export default {
+    el: "#app",
+    //data:function(){}，下面是es6写法
+    data() {
+        return {
+            name: "guowenfh",
+            age: "2q1",
+            questions: []
+        }
+    },
+
+}
 </script>
-
 <template>
     <div class="header">
-    我的网页
-        
+        我的网页
     </div>
     <!-- router-view 上不要加css  没法显示  要在外面加 -->
     <div class="middle">
-    <router-view >
-        
-    </router-view>
+        <router-view>
+        </router-view>
     </div>
-
-    <div class="footer"> 
+    <div class="footer">
         <ul v-link="{path: '/1'}">驾照</ul>
         <ul v-link="{path: '/2'}">菜谱</ul>
         <ul v-link="{path: '/3'}">数据</ul>
         <ul v-link="{path: '/blog'}">博客</ul>
         <ul v-link="{path: '/movie'}">电影</ul>
         <ul v-link="{path: '/smzdm'}">好价</ul>
-        </div>  
-
+    </div>
 </template>
-
 <style>
-   
-.header{
+.header {
     /*display: block;*/
     height: 1rem;
     font-size: 0.4rem;
@@ -52,9 +45,10 @@
     position: fixed;
     background: #91D4DA;
     width: 100%;
-    color:white;
+    color: white;
 }
-.footer{
+
+.footer {
     height: 1rem;
     bottom: 0;
     background: #91D4DA;
@@ -62,16 +56,16 @@
     width: 100%;
     display: flex;
     color: white
-    
 }
 
-.footer ul{
-      flex: 1;
-      line-height: 1rem;
-      font-size: 0.3rem;
-      text-align: center;
-    }
-.left{
+.footer ul {
+    flex: 1;
+    line-height: 1rem;
+    font-size: 0.3rem;
+    text-align: center;
+}
+
+.left {
     position: absolute;
     left: 10px;
     top: 58px;
@@ -80,7 +74,8 @@
     width: 200px;
     background: red
 }
-.middle{
+
+.middle {
     position: absolute;
     width: 100%;
     bottom: 1rem;
@@ -93,10 +88,10 @@
     left: 50%;
     margin-left: -5rem;
 }
-.content{
-    
-}
-.page{
-        display: block;
+
+.content {}
+
+.page {
+    display: block;
 }
 </style>
