@@ -1,6 +1,6 @@
 import { Promise } from 'es6-promise'
 //import wilddog from "wilddog";
-import firebase from "firebase"
+//import firebase from "firebase"
 
 
 // firebase 0    wilddog 1

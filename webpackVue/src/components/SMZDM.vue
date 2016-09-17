@@ -54,35 +54,34 @@ export default {
 }
 </script>
 <style>
-.blog-card {
-    font-size: 0.3rem;
-    height: 0.8rem;
-    display: flex;
-    text-align: center;
+@media (max-width: 700px) {
+    .blog-card {
+        font-size: 0.3rem;
+        height: 0.8rem;
+        display: flex;
+        text-align: center;
+    }
+    .blog-card div {
+        flex: 1;
+    }
+    .blog-card .date {
+        flex: 2
+    }
+    .blog-card .title {
+        margin: 0.1rem;
+        flex: 7;
+        text-align: left;
+        max-width: 8rem;
+        word-break: break-all;
+    }
+    .blog-card .content {
+        display: block;
+    }
+    .smzdm-pic {
+        width: 2rem;
+        height: 2rem;
+    }
 }
 
-.blog-card div {
-    flex: 1;
-}
-
-.blog-card .date {
-    flex: 2
-}
-
-.blog-card .title {
-    margin: 0.1rem;
-    flex: 7;
-    text-align: left;
-    max-width: 8rem;
-    word-break: break-all;
-}
-
-.blog-card .content {
-    display: block;
-}
-
-.smzdm-pic {
-    width: 2rem;
-    height: 2rem;
-}
+@media (min-width: 700px) {}
 </style>

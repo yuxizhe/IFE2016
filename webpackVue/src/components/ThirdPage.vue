@@ -80,47 +80,77 @@ export default {
             },
             moveBottom: function() {
                 var consoleText = document.getElementById("page3-content");
+                //移动能用
                 consoleText.scrollTop = consoleText.scrollHeight;
+                //桌面能用
+                window.scroll(0, consoleText.scrollHeight);
             }
         }
 }
 </script>
 <style>
-.page3-div {
-    position: absolute;
-    width: 100%;
-    bottom: 0.5rem;
-    top: 0;
-    overflow: auto;
+@media (max-width: 700px) {
+    .page3-div {
+        position: absolute;
+        width: 100%;
+        bottom: 0.5rem;
+        top: 0;
+        overflow: auto;
+    }
+    .page3-message-div {
+        font-size: 0.4rem;
+    }
+    .page3-message {
+        display: block;
+        left: 1.5rem;
+        max-width: 7rem;
+        top: -0.4rem;
+        /*要想父元素获得子元素高度，子元素不能设置为relative */
+        position: relative;
+        word-break: break-all;
+    }
+    .page-footer {
+        position: fixed;
+        bottom: 1rem;
+        width: 10rem;
+        display: flex;
+        line-height: 0.5rem
+    }
+    .page-footer input {
+        flex: 1
+    }
+    .page-footer .message-input {
+        flex: 7
+    }
 }
 
-.page3-message-div {
-    font-size: 0.4rem;
-}
-
-.page3-message {
-    display: block;
-    left: 1.5rem;
-    max-width: 7rem;
-    top: -0.4rem;
-    /*要想父元素获得子元素高度，子元素不能设置为relative */
-    position: relative;
-    word-break: break-all;
-}
-
-.page-footer {
-    position: fixed;
-    bottom: 1rem;
-    width: 10rem;
-    display: flex;
-    line-height: 0.5rem
-}
-
-.page-footer input {
-    flex: 1
-}
-
-.page-footer .message-input {
-    flex: 7
+@media (min-width: 700px) {
+    .page3-div {
+        max-width: 800px;
+        word-break: break-all;
+        /*bottom: 1rem;*/
+        margin-bottom: 1rem;
+        line-height: 0.4rem;
+        /*overflow: auto;*/
+    }
+    .page3-div .page3-message-div {
+        font-size: 0.4rem;
+    }
+    .page3-message {
+        left: 2rem;
+        position: relative;
+        top: -0.4rem;
+    }
+    .page-footer {
+        position: fixed;
+        bottom: 0;
+        width: 800px;
+        display: flex;
+        line-height: 1rem
+    }
+    .page3-content {
+        /*top: -1rem;*/
+        /*bottom: -1rem;*/
+    }
 }
 </style>

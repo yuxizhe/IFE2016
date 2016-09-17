@@ -18,7 +18,7 @@
                     <a class="title" :href="'/#!/blog/' + blog.key">{{blog.title}}</a>
                     <div class="author">{{blog.author}}</div>
                     <div @click="likes(blog)" class="like">喜欢{{blog.likes}}</div>
-                    <div @click="removePost(blog)">删除</div>
+                    <div @click="removePost(blog)" class="delete">删除X</div>
                 </div>
                 <div v-show="blog.showw">{{blog.blog}}</div>
             </div>
@@ -95,27 +95,58 @@ export default {
 }
 </script>
 <style>
-.blog-card {
-    font-size: 0.3rem;
-    height: 0.3rem;
-    display: flex;
-    text-align: center;
+@media (max-width: 700px) {
+    .blog-card {
+        font-size: 0.3rem;
+        height: 0.3rem;
+        display: flex;
+        text-align: center;
+    }
+    .blog-card div {
+        flex: 1;
+    }
+    .blog-card .date {
+        flex: 2
+    }
+    .blog-card .title {
+        flex: 7;
+        text-align: left;
+    }
+    .blog-card .content {
+        display: block;
+    }
 }
 
-.blog-card div {
-    flex: 1;
-}
-
-.blog-card .date {
-    flex: 2
-}
-
-.blog-card .title {
-    flex: 7;
-    text-align: left;
-}
-
-.blog-card .content {
-    display: block;
+@media (min-width: 700px) {
+    .blog-card {
+        font-size: 0.3rem;
+        /*height: 0.8rem;*/
+        line-height: 0.8rem;
+        display: flex;
+        width: 800px;
+        margin: 0.2rem;
+    }
+    .blog-card .title {
+        flex: 5;
+        text-align: left;
+    }
+    .blog-card div {
+        flex: 1;
+        text-align: center;
+        border-radius: 10px;
+    }
+    .blog-card .like:hover {
+        background: #90d7ec;
+        /*border-radius: 10px;*/
+        cursor: pointer;
+    }
+    .blog-card .delete:hover {
+        background: #c85d44;
+        /*border-radius: 10px;*/
+        cursor: pointer;
+    }
+    .blog-card a {
+        color: #1b315e;
+    }
 }
 </style>
