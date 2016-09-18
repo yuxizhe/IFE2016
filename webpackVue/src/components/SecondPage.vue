@@ -63,7 +63,8 @@ export default {
     .card {
         position: relative;
         margin: 0.2rem;
-        background: white
+        background: white;
+        /*box-shadow: 0 2px 4px hsla(165, 9%, 74%, .95);*/
     }
 }
 

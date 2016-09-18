@@ -1,4 +1,4 @@
-import Vue from "../node_modules/vue/dist/vue.min.js";
+//import Vue from "../node_modules/vue/dist/vue.min.js";
 import Router from "../node_modules/vue-router/dist/vue-router.min.js";
 import app from './components/app.vue';
 import FirstPage from './components/FirstPage.vue'
