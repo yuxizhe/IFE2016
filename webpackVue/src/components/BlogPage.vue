@@ -138,11 +138,13 @@ export default {
     .blog-card .like:hover {
         background: #90d7ec;
         /*border-radius: 10px;*/
+        border: 1px solid #e7e7e7;
         cursor: pointer;
     }
     .blog-card .delete:hover {
         background: #c85d44;
         /*border-radius: 10px;*/
+        border: 1px solid #e7e7e7;
         cursor: pointer;
     }
     .blog-card a {

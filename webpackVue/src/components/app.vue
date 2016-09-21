@@ -1,18 +1,19 @@
 <script>
 //es6
 // import Request from "request"
-
+// import {
+//     alert
+// } from 'vue-strap'
 
 export default {
     el: "#app",
     //data:function(){}，下面是es6写法
     data() {
         return {
-            name: "guowenfh",
-            age: "2q1",
-            questions: []
+
         }
     },
+
 
 }
 </script>
@@ -20,6 +21,7 @@ export default {
     <div class="page">
         <div class="header">
             我的网页
+            <!-- <button @click="showRight = !showRight">弹出</button> -->
         </div>
         <!-- router-view 上不要加css  没法显示  要在外面加 -->
         <div class="middle">
@@ -33,6 +35,7 @@ export default {
             <ul v-link="{path: '/blog'}">博客</ul>
             <ul v-link="{path: '/movie'}">电影</ul>
             <ul v-link="{path: '/smzdm'}">好价</ul>
+            <ul v-link="{path: '/strap'}">strap</ul>
         </div>
     </div>
 </template>
@@ -47,6 +50,8 @@ export default {
         line-height: 1rem;
         position: fixed;
         background: #91D4DA;
+        border: 1px solid #e7e7e7;
+        border-radius: 4px;
         width: 100%;
         color: white;
     }
@@ -110,6 +115,8 @@ export default {
         width: 100%;
         z-index: 10;
         /*color: white;*/
+        border: 1px solid #e7e7e7;
+        border-radius: 4px;
     }
     .middle {
         top: 60px;
@@ -144,6 +151,9 @@ export default {
     .footer ul:hover {
         background: #90d7ec;
         border-radius: 10px;
+        border: 1px solid #e7e7e7;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+        /*background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);*/
         cursor: pointer;
     }
 }

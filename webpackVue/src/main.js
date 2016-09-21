@@ -10,6 +10,7 @@ import BlogPageDetail from './components/BlogPageDetail.vue'
 import Movie from './components/Movie.vue'
 import MoviePageDetail from "./components/MoviePageDetail.vue"
 import SMZDM from './components/SMZDM.vue'
+import strap from './components/strap.vue'
 
 Vue.config.debug = true;
 
@@ -44,6 +45,9 @@ router.map({
     },
     '/smzdm': {
         component: SMZDM
+    },
+    '/strap': {
+        component: strap
     }
 })
 
