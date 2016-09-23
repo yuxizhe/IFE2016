@@ -4,7 +4,7 @@ import { Promise } from 'es6-promise'
 
 
 // firebase 0    wilddog 1
-var env = 0;
+var env = 1;
 
 if (env) {
 

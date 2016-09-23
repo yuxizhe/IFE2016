@@ -46,7 +46,8 @@ import {
     accordion,
     aside,
     carousel,
-    dropdown
+    dropdown,
+    panel
 } from 'vue-strap'
 
 export default {
@@ -60,7 +61,8 @@ export default {
             accordion,
             aside,
             carousel,
-            dropdown
+            dropdown,
+            panel
         }
 }
 </script>
