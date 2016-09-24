@@ -9,7 +9,7 @@
         <form class="page-footer" v-on:submit.prevent="addUser">
             <input v-model="newUser.name">
             <input class="message-input" v-model="newUser.message">
-            <input type="submit" value="发送">
+            <input type="submit" value="发送" class="btn btn-default">
         </form>
     </div>
 </template>
